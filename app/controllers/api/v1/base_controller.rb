@@ -1,4 +1,6 @@
 class Api::V1::BaseController < ApplicationController
+  
+  skip_before_filter  :verify_authenticity_token
   before_filter :only_json_allowed
 
   rescue_from Exception do |exception|
@@ -8,4 +10,5 @@ class Api::V1::BaseController < ApplicationController
   def only_json_allowed
     raise Api::Exception::BadRequest unless request.format.json?
   end
+
 end
