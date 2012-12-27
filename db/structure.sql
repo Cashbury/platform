@@ -89,6 +89,12 @@ CREATE TABLE users (
     salt character varying(255),
     first_name character varying(255),
     last_name character varying(255),
+    activation_state character varying(255),
+    activation_token character varying(255),
+    activation_token_expires_at character varying(255),
+    reset_password_token character varying(255),
+    reset_password_token_expires_at character varying(255),
+    reset_password_email_sent_at character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );

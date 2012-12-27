@@ -6,7 +6,13 @@ class SorceryCore < ActiveRecord::Migration
       t.string :salt,             :default => nil
       t.string :first_name,       :default => nil
       t.string :last_name,        :default => nil
-
+      t.string :activation_state
+      t.string :activation_token
+      t.string :activation_token_expires_at
+      t.string :reset_password_token
+      t.string :reset_password_token_expires_at
+      t.string :reset_password_email_sent_at
+      
       t.timestamps
     end
   end
