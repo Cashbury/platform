@@ -33,6 +33,8 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rb-fsevent'
   gem 'terminal-notifier-guard'
+  gem 'capybara'
+  gem 'pry'
 end
 
 # To use ActiveModel has_secure_password

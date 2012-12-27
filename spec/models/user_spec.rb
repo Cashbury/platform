@@ -34,6 +34,7 @@ describe User do
       # invalid
       it { should_not allow_value('test').for(:email)        }
       it { should_not allow_value('test@domain').for(:email) }
+      it { should_not allow_value('testdomain.com').for(:email) }
 
       it { should_not allow_value('J').for(:first_name) }
       it { should_not allow_value('N').for(:last_name)  }
