@@ -23,6 +23,8 @@ end
 gem 'jquery-rails'
 gem 'sorcery'
 gem 'jbuilder'
+gem 'valid_email'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'rspec'
