@@ -4,6 +4,7 @@ describe User do
 
   describe 'validations' do
     it { should validate_presence_of(:email) }
+    it { should validate_uniqueness_of(:email) }
     it { should validate_presence_of(:first_name) }
     it { should validate_presence_of(:last_name) }
     it { should ensure_length_of(:first_name).is_at_least(2).is_at_most(30) }
@@ -42,7 +43,7 @@ describe User do
       it { should_not allow_value('thirty characters long string for last name of a user ').for(:last_name)  }
 
     end
-    
+
   end
 
 end
