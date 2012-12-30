@@ -1,4 +1,7 @@
+require 'sidekiq/web'
 Platform::Application.routes.draw do
+
+  mount Sidekiq::Web, at: '/sidekiq'
 
   namespace :api do
     namespace :v1 do
@@ -6,6 +9,8 @@ Platform::Application.routes.draw do
       resources :businesses
     end
   end
+
+  match '/users/activate/:token'   =>  'users#activate', :as => :activation
 
   root :to => 'welcome#index'
 
