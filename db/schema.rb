@@ -35,14 +35,8 @@ ActiveRecord::Schema.define(:version => 20121227202357) do
     t.string   "salt"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "activation_state"
-    t.string   "activation_token"
-    t.string   "activation_token_expires_at"
-    t.string   "reset_password_token"
-    t.string   "reset_password_token_expires_at"
-    t.string   "reset_password_email_sent_at"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end
