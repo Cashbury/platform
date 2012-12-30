@@ -1,2 +1,1 @@
-json.key_format! :camelize => :lower
-json.first_name "David"
+json.(@user, :first_name, :last_name, :email)

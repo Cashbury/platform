@@ -34,4 +34,16 @@ Platform::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.default_url_options = { :host => "lvh.me:3000" }
+
+  ActionMailer::Base.smtp_settings = {
+    :user_name => "jasdeep",
+    :password => "chalchakk6",
+    :domain => "cashbury.com",
+    :address => "smtp.sendgrid.net",
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end
