@@ -6,4 +6,10 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(:to => user.email, :subject => "Activation Required | Cashbury")
   end
+
+  def activation_success(user)
+    @user = user
+    mail(:to => user.email, :subject => "Welcome to Cashbury | Successful Activation")
+  end
+
 end
