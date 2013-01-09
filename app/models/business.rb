@@ -5,4 +5,5 @@ class Business < ActiveRecord::Base
   validates :legal_name, :length => {minimum: 2, :maximum => 50}
   validates :name, :length => {minimum: 2, maximum: 50}
 
+
 end

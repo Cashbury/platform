@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(:version => 20130104000129) do
     t.string   "phone_number"
     t.boolean  "is_male"
     t.string   "account_status"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
