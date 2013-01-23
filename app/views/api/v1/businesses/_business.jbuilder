@@ -1,4 +1,4 @@
-json.id 	         business.id
+json.id 	           business.id
 json.name 	         business.name 
 json.legal_name      business.legal_name
 json.description     business.description 

@@ -11,6 +11,8 @@ Platform::Application.routes.draw do
     namespace :v1 do
       resources :users
       resources :businesses
+      resources :locations
+      resources :password_resets, only: :create
 
       post 'sessions' => 'sessions#create'
     end
@@ -18,9 +20,11 @@ Platform::Application.routes.draw do
 
   resources :sessions, :only => [:create, :destroy]
 
-  match '/users/activate/:token'   =>  'users#activate', :as => :activation
-  match "oauth/callback" => "oauths#callback"
-  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  match '/users/activate/:token'              => 'users#activate',        :as => :activation
+  resources :password_resets
+  #match '/password_resets/:reset_token/edit'  => 'password_resets#edit',  :as => :password_reset
+  match '/oauth/callback'                     => 'oauths#callback'
+  match '/oauth/:provider'                    => 'oauths#oauth',          :as => :auth_at_provider
   
   root :to => 'welcome#index'
 

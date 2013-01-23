@@ -22,11 +22,15 @@ describe SessionsController do
 
     describe "authentication failed" do
 
+      it "should return user account is not active if not active" do
+        
+      end
+
       it "should return error that authentication failed" do
         @controller.stub(:login) { nil }
         post :create, user: user, format: :json
         JSON.parse(response.body).should include('errors')
-        JSON.parse(response.body)['errors'].should == ['Authentication Failed']
+        JSON.parse(response.body)['errors'].should == ['Authentication Failed: Check username/password or Account may not be active']
       end
 
     end

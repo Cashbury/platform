@@ -8,4 +8,9 @@ class UsersController < ApplicationController
       not_authenticated
     end
   end
+
+  def edit
+      
+  end
+
 end

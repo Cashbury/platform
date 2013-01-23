@@ -1,5 +1,7 @@
 class Api::V1::UsersController < Api::V1::BaseController
 
+  skip_before_filter :authenticate
+
   def create
     @user = User.new(params[:user])
     if @user.save

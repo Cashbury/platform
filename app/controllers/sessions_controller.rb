@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user
       render 'create'
     else
-      render json: { :errors => ['Authentication Failed'] }
+      render json: { :errors => ['Authentication Failed: Check username/password or Account may not be active'] }
     end
   end
 

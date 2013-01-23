@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -10,7 +10,7 @@ gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'rolify'
-gem 'apartment'
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,6 +29,7 @@ gem 'sorcery'
 gem 'jbuilder'
 gem 'valid_email'
 gem 'cloudinary'
+gem 'thin'
 
 group :development, :test do
   gem 'rspec'
@@ -39,6 +40,7 @@ group :development, :test do
   gem 'terminal-notifier-guard'
   gem 'capybara'
   gem 'pry'
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password

@@ -1,11 +1,14 @@
 class User < ActiveRecord::Base
   rolify
+
   authenticates_with_sorcery!
-  attr_accessor :password
+  attr_accessor :password, :password_confirmation
   
   authenticates_with_sorcery! do |config|
     config.authentications_class = Authentication
   end
+
+  before_create :reset_authentication_token!
 
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
@@ -19,7 +22,6 @@ class User < ActiveRecord::Base
 
   def reset_authentication_token!
     self.authentication_token = SecureRandom.hex(24)
-    self.save
   end
 
 end
