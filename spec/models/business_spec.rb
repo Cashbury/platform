@@ -31,6 +31,7 @@ describe Business do
   end
   
   let(:business) { stub_model(Business) }
+  let(:user) { stub_model(User) }
 
   describe "#downcase_subdomain" do
 
@@ -42,8 +43,6 @@ describe Business do
   end
 
   describe '#create_new_for(user)' do
-
-    let(:user) { stub_model(User) }
 
     before(:each) do
       business.subdomain = 'starbucks'
@@ -57,6 +56,51 @@ describe Business do
 
     it "should setup the postgres schema for this business" do
       pending 'need to figure out how to test this'
+    end
+
+  end
+
+  describe "class methods" do
+
+    describe ".api_pin_update" do
+
+      let(:params) { { business: { master_pin: 1234 } } }
+
+      it "should return error when there is no business" do
+        response = Business.api_pin_update(params, user)
+        
+        response[:errors].should_not be_nil
+        response[:errors].should == ['The business does not exist']
+        response[:success].should be_nil
+      end
+
+      it "should return error when user does not own the business" do
+        business = stub_model(Business)
+        Business.stub(:find) { business }
+        user.stub(:has_role?).with(:admin, business) { false }
+
+        response = Business.api_pin_update(params, user)
+        
+        response[:errors].should_not be_nil
+        response[:errors].should == ['User is not authorized to update PIN for this business']
+        response[:success].should be_nil
+      end
+
+      it "should return success when pin has been updated" do
+        business = stub_model(Business)
+        Business.stub(:find) { business }
+        Business.any_instance.stub(:update_attributes) { true }
+        user.stub(:has_role?).with(:admin, business) { true }
+
+        response = Business.api_pin_update(params, user)
+        response[:success].should_not be_nil
+        response[:errors].should be_nil
+      end
+
+      it "should prevent from mass assignment and filter other params" do
+        pending "This is actually a major security concern that can allow someone to mass update a business via the API"
+      end
+
     end
 
   end

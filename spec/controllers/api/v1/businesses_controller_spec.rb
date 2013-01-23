@@ -21,6 +21,7 @@ describe Api::V1::BusinessesController do
       it "should render create.json.jbuilder view" do
         Business.destroy_all
         post :create, business: business, format: :json
+        
         response.status.should == 200
         expect(response).to render_template("create")
       end

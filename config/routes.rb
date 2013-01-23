@@ -13,6 +13,7 @@ Platform::Application.routes.draw do
       resources :businesses
       resources :locations
       resources :password_resets, only: :create
+      resources :business_pin,    only: :update
 
       post 'sessions' => 'sessions#create'
     end

@@ -4,7 +4,7 @@ class Api::V1::BaseController < ApplicationController
   before_filter :only_json_allowed, :authenticate
 
   rescue_from Exception do |exception|
-    render json: { errors: [exception.message] }, status: :internal_server_error
+    render json: { errors: [exception.message, exception.backtrace] }, status: :internal_server_error
   end
 
   rescue_from Api::Exception::Unauthorized, with: :unauthorized
