@@ -13,6 +13,9 @@
 * Users
 * Business
 * Location
+* Accounts
+  * Marketing Money Account
+  * Money Account
 
 ## 1. Users :man:
 

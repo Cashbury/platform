@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123032438) do
+ActiveRecord::Schema.define(:version => 20130124030147) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -99,6 +99,14 @@ ActiveRecord::Schema.define(:version => 20130123032438) do
     t.string   "state",          :null => false
     t.string   "country",        :null => false
     t.string   "postal_code",    :null => false
+  end
+
+  create_table "marketing_money_account", :force => true do |t|
+    t.integer "owner_id"
+    t.string  "state"
+    t.integer "business_id"
+    t.decimal "balance",     :precision => 8, :scale => 2, :default => 0.0
+    t.decimal "limit",       :precision => 8, :scale => 2, :default => 1000.0
   end
 
   create_table "roles", :force => true do |t|

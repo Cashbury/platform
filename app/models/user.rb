@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   before_create :reset_authentication_token!
 
+  has_many :marketing_money_accounts, class_name: 'Account::MarketingMoney', foreign_key: 'owner_id'
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
 

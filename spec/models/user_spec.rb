@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe User do
 
+  let(:user) { stub_model(User) }
+
   describe 'validations' do
     it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email) }
@@ -47,6 +49,22 @@ describe User do
       it { should_not allow_value('thirty characters long string for first name of a user').for(:first_name) }
       it { should_not allow_value('thirty characters long string for last name of a user ').for(:last_name)  }
 
+    end
+
+  end
+
+  describe "#reset_authentication_token!" do
+
+    it "resets the authentication token" do
+      user.authentication_token = 'something'
+      user.reset_authentication_token!
+      user.authentication_token.should_not == 'something'
+    end
+
+    it "should call the SecureRandom lib to generate a token" do
+      user.authentication_token = 'something'
+      SecureRandom.should_receive(:hex).with(24)
+      user.reset_authentication_token!
     end
 
   end

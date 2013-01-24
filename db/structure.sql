@@ -169,6 +169,39 @@ ALTER SEQUENCE locations_id_seq OWNED BY locations.id;
 
 
 --
+-- Name: marketing_money_account; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE marketing_money_account (
+    id integer NOT NULL,
+    owner_id integer,
+    state character varying(255),
+    business_id integer,
+    balance numeric(8,2) DEFAULT 0.0,
+    "limit" numeric(8,2) DEFAULT 1000.0
+);
+
+
+--
+-- Name: marketing_money_account_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE marketing_money_account_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: marketing_money_account_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE marketing_money_account_id_seq OWNED BY marketing_money_account.id;
+
+
+--
 -- Name: roles; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
 --
 
@@ -932,6 +965,13 @@ ALTER TABLE ONLY locations ALTER COLUMN id SET DEFAULT nextval('locations_id_seq
 -- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
 --
 
+ALTER TABLE ONLY marketing_money_account ALTER COLUMN id SET DEFAULT nextval('marketing_money_account_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
 ALTER TABLE ONLY roles ALTER COLUMN id SET DEFAULT nextval('roles_id_seq'::regclass);
 
 
@@ -1077,6 +1117,14 @@ ALTER TABLE ONLY businesses
 
 ALTER TABLE ONLY locations
     ADD CONSTRAINT locations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: marketing_money_account_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY marketing_money_account
+    ADD CONSTRAINT marketing_money_account_pkey PRIMARY KEY (id);
 
 
 --
@@ -1392,3 +1440,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130109033411');
 INSERT INTO schema_migrations (version) VALUES ('20130110042425');
 
 INSERT INTO schema_migrations (version) VALUES ('20130123032438');
+
+INSERT INTO schema_migrations (version) VALUES ('20130124030147');
