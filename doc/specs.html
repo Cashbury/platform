@@ -284,288 +284,465 @@ a {
 <div class="results">
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_1" class="passed">oauths/oauth.html.erb</dt>
-    <script type="text/javascript">makeYellow('rspec-header');</script>
-    <script type="text/javascript">makeYellow('div_group_1');</script>
-    <script type="text/javascript">makeYellow('example_group_1');</script>
-    <script type="text/javascript">moveProgressBar('1.5');</script>
-    <dd class="example not_implemented"><span class="not_implemented_spec_name">add some examples to (or delete) /Users/jasdeep/personal/platform/spec/views/oauths/oauth.html.erb_spec.rb (PENDING: No reason given)</span></dd>
+  <dt id="example_group_1" class="passed">api/v1/users/create.json.jbuilder</dt>
+    <script type="text/javascript">moveProgressBar('0.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return success when user is registered</span><span class='duration'>1.61436s</span></dd>
   </dl>
 </div>
 <div id="div_group_2" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_2" class="passed">SessionsController</dt>
+  <dt id="example_group_2" class="passed">Business</dt>
   </dl>
 </div>
 <div id="div_group_3" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_3" class="passed">#create</dt>
+  <dt id="example_group_3" class="passed">validations</dt>
+    <script type="text/javascript">moveProgressBar('1.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should master_pin have a valid format</span><span class='duration'>0.22043s</span></dd>
+    <script type="text/javascript">moveProgressBar('2.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should only allow numeric, integer values for master_pin</span><span class='duration'>0.13183s</span></dd>
+    <script type="text/javascript">moveProgressBar('3.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require description to be set</span><span class='duration'>0.20447s</span></dd>
+    <script type="text/javascript">moveProgressBar('4.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should ensure subdomain has a length between 3 and 16</span><span class='duration'>0.20048s</span></dd>
+    <script type="text/javascript">moveProgressBar('5.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require state to be set</span><span class='duration'>0.20297s</span></dd>
+    <script type="text/javascript">moveProgressBar('6.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should ensure legal_name has a length between 2 and 50</span><span class='duration'>0.20664s</span></dd>
+    <script type="text/javascript">moveProgressBar('7.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require legal_name to be set</span><span class='duration'>0.20390s</span></dd>
+    <script type="text/javascript">moveProgressBar('8.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should ensure name has a length between 2 and 50</span><span class='duration'>0.07147s</span></dd>
+    <script type="text/javascript">moveProgressBar('9.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require name to be set</span><span class='duration'>0.14074s</span></dd>
+    <script type="text/javascript">moveProgressBar('10.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should ensure master_pin has a length of exactly 4</span><span class='duration'>0.20380s</span></dd>
   </dl>
 </div>
 <div id="div_group_4" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_4" class="passed">authentication failed</dt>
-    <script type="text/javascript">moveProgressBar('3.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should return error that authentication failed</span><span class='duration'>0.04631s</span></dd>
-    <script type="text/javascript">moveProgressBar('4.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should return user account is not active if not active</span><span class='duration'>0.13405s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_4" class="passed">class methods</dt>
   </dl>
 </div>
 <div id="div_group_5" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_5" class="passed">authentication successful</dt>
-    <script type="text/javascript">moveProgressBar('6.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should return users token</span><span class='duration'>0.21094s</span></dd>
+  <dt id="example_group_5" class="passed">.api_pin_update</dt>
+    <script type="text/javascript">moveProgressBar('11.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return error when user does not own the business</span><span class='duration'>0.19991s</span></dd>
+    <script type="text/javascript">moveProgressBar('12.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return error when there is no business</span><span class='duration'>0.20593s</span></dd>
+    <script type="text/javascript">moveProgressBar('13.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return success when pin has been updated</span><span class='duration'>0.20650s</span></dd>
   </dl>
 </div>
 <div id="div_group_6" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_6" class="passed">Api::V1::UsersController</dt>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_6" class="passed">#downcase_subdomain</dt>
+    <script type="text/javascript">moveProgressBar('14.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should downcase subdomain before saving</span><span class='duration'>0.20400s</span></dd>
   </dl>
 </div>
 <div id="div_group_7" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_7" class="passed">#create</dt>
+  <dt id="example_group_7" class="passed">valid values</dt>
+    <script type="text/javascript">moveProgressBar('15.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should allow master_pin to be set to &quot;1234&quot;</span><span class='duration'>0.04074s</span></dd>
+    <script type="text/javascript">moveProgressBar('16.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;co&quot;</span><span class='duration'>0.16548s</span></dd>
+    <script type="text/javascript">moveProgressBar('17.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;12345678901234567&quot;</span><span class='duration'>0.20764s</span></dd>
+    <script type="text/javascript">moveProgressBar('18.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should allow name to be set to &quot;Starbucks&quot;</span><span class='duration'>0.20127s</span></dd>
+    <script type="text/javascript">moveProgressBar('19.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should allow subdomain to be set to &quot;jasdeep&quot;</span><span class='duration'>0.20383s</span></dd>
+    <script type="text/javascript">moveProgressBar('20.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;.com&quot;</span><span class='duration'>0.20158s</span></dd>
+    <script type="text/javascript">moveProgressBar('21.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;jasdeep!@\#$%&quot;</span><span class='duration'>0.20474s</span></dd>
+    <script type="text/javascript">moveProgressBar('22.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should allow legal_name to be set to &quot;Starbucks Canada Inc.&quot;</span><span class='duration'>0.04079s</span></dd>
+    <script type="text/javascript">moveProgressBar('23.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;jasdeep singh&quot;</span><span class='duration'>0.17189s</span></dd>
+    <script type="text/javascript">moveProgressBar('24.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow master_pin to be set to &quot;12345&quot;</span><span class='duration'>0.20145s</span></dd>
+    <script type="text/javascript">moveProgressBar('25.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should allow description to be set to &quot;Starbucks is good coffee place&quot;</span><span class='duration'>0.20168s</span></dd>
+    <script type="text/javascript">moveProgressBar('26.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;jasdeep @&quot;</span><span class='duration'>0.20682s</span></dd>
   </dl>
 </div>
 <div id="div_group_8" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_8" class="passed">create/registration failed</dt>
-    <script type="text/javascript">moveProgressBar('7.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not call the email worker</span><span class='duration'>0.19335s</span></dd>
-    <script type="text/javascript">moveProgressBar('9.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should render an error</span><span class='duration'>0.02693s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_8" class="passed">#create_new_for(user)</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('div_group_8');</script>
+    <script type="text/javascript">makeYellow('example_group_8');</script>
+    <script type="text/javascript">moveProgressBar('27.1');</script>
+    <dd class="example not_implemented"><span class="not_implemented_spec_name">should setup the postgres schema for this business (PENDING: need to figure out how to test this)</span></dd>
+    <script type="text/javascript">moveProgressBar('28.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should add admin role for user on the business</span><span class='duration'>0.20648s</span></dd>
   </dl>
 </div>
 <div id="div_group_9" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_9" class="passed">create/registration was successfull</dt>
-    <script type="text/javascript">moveProgressBar('10.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should call the email worker</span><span class='duration'>0.17439s</span></dd>
-    <script type="text/javascript">moveProgressBar('12.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should save the user if it is valid</span><span class='duration'>0.20169s</span></dd>
-    <script type="text/javascript">moveProgressBar('14.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should render create.jbuilder view</span><span class='duration'>0.21276s</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_9" class="passed">Location</dt>
   </dl>
 </div>
 <div id="div_group_10" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_10" class="passed">OauthsHelper</dt>
-    <script type="text/javascript">makeYellow('rspec-header');</script>
-    <script type="text/javascript">makeYellow('div_group_10');</script>
-    <script type="text/javascript">makeYellow('example_group_10');</script>
-    <script type="text/javascript">moveProgressBar('15.6');</script>
-    <dd class="example not_implemented"><span class="not_implemented_spec_name">add some examples to (or delete) /Users/jasdeep/personal/platform/spec/helpers/oauths_helper_spec.rb (PENDING: No reason given)</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_10" class="passed">class methods</dt>
   </dl>
 </div>
 <div id="div_group_11" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_11" class="passed">User</dt>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_11" class="passed">.api_create</dt>
   </dl>
 </div>
 <div id="div_group_12" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_12" class="passed">invalid values</dt>
+  <dl style="margin-left: 45px;">
+  <dt id="example_group_12" class="passed">success scenarios</dt>
+    <script type="text/javascript">moveProgressBar('29.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should save and return a success key</span><span class='duration'>0.11054s</span></dd>
   </dl>
 </div>
 <div id="div_group_13" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_13" class="passed">empty strings</dt>
-    <script type="text/javascript">moveProgressBar('17.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow last_name to be set to &quot;thirty characters long string for last name of a user &quot;</span><span class='duration'>0.05325s</span></dd>
-    <script type="text/javascript">moveProgressBar('18.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow first_name to be set to &quot;    &quot;</span><span class='duration'>0.13824s</span></dd>
-    <script type="text/javascript">moveProgressBar('20.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow email to be set to &quot;&quot;</span><span class='duration'>0.20300s</span></dd>
-    <script type="text/javascript">moveProgressBar('21.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow email to be set to &quot;testdomain.com&quot;</span><span class='duration'>0.20444s</span></dd>
-    <script type="text/javascript">moveProgressBar('23.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow last_name to be set to &quot;    &quot;</span><span class='duration'>0.19218s</span></dd>
-    <script type="text/javascript">moveProgressBar('25.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow first_name to be set to &quot;&quot;</span><span class='duration'>0.02964s</span></dd>
-    <script type="text/javascript">moveProgressBar('26.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow first_name to be set to &quot;J&quot;</span><span class='duration'>0.18944s</span></dd>
-    <script type="text/javascript">moveProgressBar('28.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow first_name to be set to &quot;thirty characters long string for first name of a user&quot;</span><span class='duration'>0.19437s</span></dd>
-    <script type="text/javascript">moveProgressBar('29.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow email to be set to &quot;    &quot;</span><span class='duration'>0.19776s</span></dd>
-    <script type="text/javascript">moveProgressBar('31.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow email to be set to &quot;test@domain&quot;</span><span class='duration'>0.03220s</span></dd>
-    <script type="text/javascript">moveProgressBar('32.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow last_name to be set to &quot;&quot;</span><span class='duration'>0.17389s</span></dd>
-    <script type="text/javascript">moveProgressBar('34.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow last_name to be set to &quot;N&quot;</span><span class='duration'>0.19532s</span></dd>
-    <script type="text/javascript">moveProgressBar('35.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow email to be set to &quot;test&quot;</span><span class='duration'>0.20503s</span></dd>
+  <dl style="margin-left: 45px;">
+  <dt id="example_group_13" class="passed">error scenarios</dt>
+    <script type="text/javascript">moveProgressBar('30.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return error when the user does not own the business</span><span class='duration'>0.10901s</span></dd>
+    <script type="text/javascript">moveProgressBar('31.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should raise error when business with the given ID does not exist</span><span class='duration'>0.19566s</span></dd>
   </dl>
 </div>
 <div id="div_group_14" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_14" class="passed">valid values</dt>
-    <script type="text/javascript">moveProgressBar('37.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should allow email to be set to &quot;narang.jasdeep@gmail.com&quot;</span><span class='duration'>0.20006s</span></dd>
-    <script type="text/javascript">moveProgressBar('39.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should allow last_name to be set to &quot;Narang&quot;</span><span class='duration'>0.03039s</span></dd>
-    <script type="text/javascript">moveProgressBar('40.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should allow first_name to be set to &quot;Jasdeep&quot;</span><span class='duration'>0.20126s</span></dd>
+  <dt id="example_group_14" class="passed">#validations</dt>
+    <script type="text/javascript">moveProgressBar('32.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require street_address to be set</span><span class='duration'>0.19631s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require postal_code to be set</span><span class='duration'>0.20915s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require country to be set</span><span class='duration'>0.20960s</span></dd>
+    <script type="text/javascript">moveProgressBar('34.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require city to be set</span><span class='duration'>0.19913s</span></dd>
+    <script type="text/javascript">moveProgressBar('35.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require state to be set</span><span class='duration'>0.04697s</span></dd>
   </dl>
 </div>
 <div id="div_group_15" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_15" class="passed">validations</dt>
-    <script type="text/javascript">moveProgressBar('42.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should require last_name to be set</span><span class='duration'>0.17819s</span></dd>
-    <script type="text/javascript">moveProgressBar('43.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should require case sensitive unique value for email</span><span class='duration'>0.19760s</span></dd>
-    <script type="text/javascript">moveProgressBar('45.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should require first_name to be set</span><span class='duration'>0.03179s</span></dd>
-    <script type="text/javascript">moveProgressBar('46.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should require email to be set</span><span class='duration'>0.17308s</span></dd>
-    <script type="text/javascript">moveProgressBar('48.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should ensure first_name has a length between 2 and 30</span><span class='duration'>0.19106s</span></dd>
-    <script type="text/javascript">moveProgressBar('50.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should ensure password has a length between 6 and 32</span><span class='duration'>0.20156s</span></dd>
-    <script type="text/javascript">moveProgressBar('51.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should require password to be set</span><span class='duration'>0.21102s</span></dd>
-    <script type="text/javascript">moveProgressBar('53.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should ensure last_name has a length between 2 and 30</span><span class='duration'>0.10075s</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_15" class="passed">Api::V1::BusinessesController</dt>
   </dl>
 </div>
 <div id="div_group_16" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_16" class="passed">Api::V1::BusinessesController</dt>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_16" class="passed">#create</dt>
   </dl>
 </div>
 <div id="div_group_17" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_17" class="passed">#create</dt>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_17" class="passed">create failed</dt>
+    <script type="text/javascript">moveProgressBar('36.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should render response with errors</span><span class='duration'>0.16440s</span></dd>
   </dl>
 </div>
 <div id="div_group_18" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_18" class="passed">create failed</dt>
-    <script type="text/javascript">moveProgressBar('54.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should render response with errors</span><span class='duration'>0.09811s</span></dd>
+  <dt id="example_group_18" class="passed">create was successfull</dt>
+    <script type="text/javascript">moveProgressBar('37.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should render create.json.jbuilder view</span><span class='duration'>0.20163s</span></dd>
   </dl>
 </div>
 <div id="div_group_19" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_19" class="passed">create was successfull</dt>
-    <script type="text/javascript">moveProgressBar('56.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should render create.json.jbuilder view</span><span class='duration'>0.20488s</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_19" class="passed">Api::V1::MarketingAccountsController</dt>
   </dl>
 </div>
 <div id="div_group_20" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_20" class="passed">api/v1/users/create.json.jbuilder</dt>
-    <script type="text/javascript">moveProgressBar('57.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should return success when user is registered</span><span class='duration'>0.19810s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_20" class="passed">#create</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('div_group_20');</script>
+    <script type="text/javascript">makeYellow('example_group_20');</script>
+    <script type="text/javascript">moveProgressBar('38.8');</script>
+    <dd class="example not_implemented"><span class="not_implemented_spec_name">need to gather more requirements for creation (PENDING: No reason given)</span></dd>
   </dl>
 </div>
 <div id="div_group_21" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_21" class="passed">oauths/callback.html.erb</dt>
+  <dt id="example_group_21" class="passed">Account::Money</dt>
     <script type="text/javascript">makeYellow('rspec-header');</script>
     <script type="text/javascript">makeYellow('div_group_21');</script>
     <script type="text/javascript">makeYellow('example_group_21');</script>
-    <script type="text/javascript">moveProgressBar('59.3');</script>
-    <dd class="example not_implemented"><span class="not_implemented_spec_name">add some examples to (or delete) /Users/jasdeep/personal/platform/spec/views/oauths/callback.html.erb_spec.rb (PENDING: No reason given)</span></dd>
+    <script type="text/javascript">moveProgressBar('39.8');</script>
+    <dd class="example not_implemented"><span class="not_implemented_spec_name">Not needed for MVP/Spin2Win. WE WANT TO BE HERE ULTIMATELY!!! I&#x27;ve put in this pending spec so that we are never a complete GREEN suite and keep on track with our ultimate vision!! This pending spec will be highlighted in yellow always!! ;) (PENDING: No reason given)</span></dd>
   </dl>
 </div>
 <div id="div_group_22" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_22" class="passed">Authentication</dt>
-    <script type="text/javascript">makeYellow('rspec-header');</script>
-    <script type="text/javascript">makeYellow('div_group_22');</script>
-    <script type="text/javascript">makeYellow('example_group_22');</script>
-    <script type="text/javascript">moveProgressBar('60.9');</script>
-    <dd class="example not_implemented"><span class="not_implemented_spec_name">add some examples to (or delete) /Users/jasdeep/personal/platform/spec/models/authentication_spec.rb (PENDING: No reason given)</span></dd>
+  <dt id="example_group_22" class="passed">Api::V1::UsersController</dt>
   </dl>
 </div>
 <div id="div_group_23" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_23" class="passed">Business</dt>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_23" class="passed">#create</dt>
   </dl>
 </div>
 <div id="div_group_24" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_24" class="passed">#create_new_for(user)</dt>
-    <script type="text/javascript">makeYellow('rspec-header');</script>
-    <script type="text/javascript">makeYellow('div_group_24');</script>
-    <script type="text/javascript">makeYellow('example_group_24');</script>
-    <script type="text/javascript">moveProgressBar('62.5');</script>
-    <dd class="example not_implemented"><span class="not_implemented_spec_name">should setup the postgres schema for this business (PENDING: need to figure out how to test this)</span></dd>
-    <script type="text/javascript">moveProgressBar('64.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should add admin role for user on the business</span><span class='duration'>0.17583s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_24" class="passed">create/registration failed</dt>
+    <script type="text/javascript">moveProgressBar('40.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not call the email worker</span><span class='duration'>0.19988s</span></dd>
+    <script type="text/javascript">moveProgressBar('41.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should render an error</span><span class='duration'>0.20599s</span></dd>
   </dl>
 </div>
 <div id="div_group_25" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_25" class="passed">valid values</dt>
-    <script type="text/javascript">moveProgressBar('65.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should allow master_pin to be set to &quot;1234&quot;</span><span class='duration'>0.20815s</span></dd>
-    <script type="text/javascript">moveProgressBar('67.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should allow subdomain to be set to &quot;jasdeep&quot;</span><span class='duration'>0.19326s</span></dd>
-    <script type="text/javascript">moveProgressBar('68.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should allow description to be set to &quot;Starbucks is good coffee place&quot;</span><span class='duration'>0.03100s</span></dd>
-    <script type="text/javascript">moveProgressBar('70.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;.com&quot;</span><span class='duration'>0.17892s</span></dd>
-    <script type="text/javascript">moveProgressBar('71.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;jasdeep singh&quot;</span><span class='duration'>0.19565s</span></dd>
-    <script type="text/javascript">moveProgressBar('73.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should allow legal_name to be set to &quot;Starbucks Canada Inc.&quot;</span><span class='duration'>0.20719s</span></dd>
-    <script type="text/javascript">moveProgressBar('75.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;co&quot;</span><span class='duration'>0.20402s</span></dd>
-    <script type="text/javascript">moveProgressBar('76.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow master_pin to be set to &quot;12345&quot;</span><span class='duration'>0.02970s</span></dd>
-    <script type="text/javascript">moveProgressBar('78.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;jasdeep @&quot;</span><span class='duration'>0.17117s</span></dd>
-    <script type="text/javascript">moveProgressBar('79.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;jasdeep!@\#$%&quot;</span><span class='duration'>0.19651s</span></dd>
-    <script type="text/javascript">moveProgressBar('81.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should allow name to be set to &quot;Starbucks&quot;</span><span class='duration'>0.20452s</span></dd>
-    <script type="text/javascript">moveProgressBar('82.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not allow subdomain to be set to &quot;12345678901234567&quot;</span><span class='duration'>0.03286s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_25" class="passed">create/registration was successfull</dt>
+    <script type="text/javascript">moveProgressBar('42.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should save the user if it is valid</span><span class='duration'>0.20578s</span></dd>
+    <script type="text/javascript">moveProgressBar('43.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should render create.jbuilder view</span><span class='duration'>0.20980s</span></dd>
+    <script type="text/javascript">moveProgressBar('44.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should call the email worker</span><span class='duration'>0.03391s</span></dd>
   </dl>
 </div>
 <div id="div_group_26" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_26" class="passed">#downcase_subdomain</dt>
-    <script type="text/javascript">moveProgressBar('84.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should downcase subdomain before saving</span><span class='duration'>0.16782s</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_26" class="passed">Account::MarketingMoney</dt>
+    <script type="text/javascript">moveProgressBar('45.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should start out an account with 0.00 balance</span><span class='duration'>0.16977s</span></dd>
+    <script type="text/javascript">moveProgressBar('46.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should use the right table_name</span><span class='duration'>0.20569s</span></dd>
+    <script type="text/javascript">moveProgressBar('47.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should start out the limit at 1000.00</span><span class='duration'>0.20301s</span></dd>
   </dl>
 </div>
 <div id="div_group_27" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_27" class="passed">validations</dt>
-    <script type="text/javascript">moveProgressBar('85.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should ensure master_pin has a length of exactly 4</span><span class='duration'>0.20106s</span></dd>
-    <script type="text/javascript">moveProgressBar('87.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should require name to be set</span><span class='duration'>0.19842s</span></dd>
-    <script type="text/javascript">moveProgressBar('89.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should require description to be set</span><span class='duration'>0.20787s</span></dd>
-    <script type="text/javascript">moveProgressBar('90.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should require state to be set</span><span class='duration'>0.03417s</span></dd>
-    <script type="text/javascript">moveProgressBar('92.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should ensure subdomain has a length between 3 and 16</span><span class='duration'>0.16671s</span></dd>
-    <script type="text/javascript">moveProgressBar('93.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should require legal_name to be set</span><span class='duration'>0.20758s</span></dd>
-    <script type="text/javascript">moveProgressBar('95.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should master_pin have a valid format</span><span class='duration'>0.19426s</span></dd>
-    <script type="text/javascript">moveProgressBar('96.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should only allow numeric, integer values for master_pin</span><span class='duration'>0.04247s</span></dd>
-    <script type="text/javascript">moveProgressBar('98.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should ensure legal_name has a length between 2 and 50</span><span class='duration'>0.16012s</span></dd>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should ensure name has a length between 2 and 50</span><span class='duration'>0.20176s</span></dd>
+  <dt id="example_group_27" class="passed">#withdraw</dt>
+    <script type="text/javascript">moveProgressBar('48.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should withdraw the specified amount when a castable string is withdrawn</span><span class='duration'>0.20197s</span></dd>
+    <script type="text/javascript">moveProgressBar('49.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should withdraw the specified amount of money from account</span><span class='duration'>0.20568s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>9.33046 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "64 examples, 0 failures, 5 pending";</script>
+<div id="div_group_28" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_28" class="passed">error scenarios</dt>
+    <script type="text/javascript">moveProgressBar('50.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not withdraw anything when amount specified is 0.00</span><span class='duration'>0.20512s</span></dd>
+    <script type="text/javascript">moveProgressBar('51.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow withdraws more than the limit</span><span class='duration'>0.02985s</span></dd>
+    <script type="text/javascript">moveProgressBar('52.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow negative withdraws</span><span class='duration'>0.18094s</span></dd>
+    <script type="text/javascript">moveProgressBar('53.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not withdraw from the balance when a string is used</span><span class='duration'>0.21381s</span></dd>
+    <script type="text/javascript">moveProgressBar('54.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow withdraws more than the balance</span><span class='duration'>0.19356s</span></dd>
+  </dl>
+</div>
+<div id="div_group_29" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_29" class="passed">#load</dt>
+    <script type="text/javascript">moveProgressBar('55.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should load the specified amount when a castable string is loaded</span><span class='duration'>0.20510s</span></dd>
+    <script type="text/javascript">moveProgressBar('56.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should load the specified amount of money into the account</span><span class='duration'>0.20230s</span></dd>
+  </dl>
+</div>
+<div id="div_group_30" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_30" class="passed">error scenarios</dt>
+    <script type="text/javascript">moveProgressBar('57.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not change the balance when 0 is loaded</span><span class='duration'>0.20310s</span></dd>
+    <script type="text/javascript">moveProgressBar('58.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow a load if amount goes beyond limit</span><span class='duration'>0.03646s</span></dd>
+    <script type="text/javascript">moveProgressBar('59.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow negative loads</span><span class='duration'>0.16760s</span></dd>
+    <script type="text/javascript">moveProgressBar('60.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not change the balance when a string is loaded</span><span class='duration'>0.20767s</span></dd>
+    <script type="text/javascript">moveProgressBar('61.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow over the limit loads</span><span class='duration'>0.21862s</span></dd>
+  </dl>
+</div>
+<div id="div_group_31" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_31" class="passed">Api::V1::BusinessPinController</dt>
+  </dl>
+</div>
+<div id="div_group_32" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_32" class="passed">update</dt>
+    <script type="text/javascript">moveProgressBar('62.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should raise an error if the user does not own the business</span><span class='duration'>0.20040s</span></dd>
+    <script type="text/javascript">moveProgressBar('63.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should update the business PIN if business exists and user owns it</span><span class='duration'>0.19796s</span></dd>
+    <script type="text/javascript">moveProgressBar('64.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should raise an error if the business does not exist</span><span class='duration'>0.70113s</span></dd>
+  </dl>
+</div>
+<div id="div_group_33" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_33" class="passed">User</dt>
+  </dl>
+</div>
+<div id="div_group_34" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_34" class="passed">valid values</dt>
+    <script type="text/javascript">moveProgressBar('65.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should allow last_name to be set to &quot;Narang&quot;</span><span class='duration'>0.13000s</span></dd>
+    <script type="text/javascript">moveProgressBar('66.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should allow first_name to be set to &quot;Jasdeep&quot;</span><span class='duration'>0.18119s</span></dd>
+    <script type="text/javascript">moveProgressBar('66.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should allow email to be set to &quot;narang.jasdeep@gmail.com&quot;</span><span class='duration'>0.20742s</span></dd>
+  </dl>
+</div>
+<div id="div_group_35" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_35" class="passed">validations</dt>
+    <script type="text/javascript">moveProgressBar('67.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require password to be set</span><span class='duration'>0.25732s</span></dd>
+    <script type="text/javascript">moveProgressBar('68.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require case sensitive unique value for email</span><span class='duration'>0.16010s</span></dd>
+    <script type="text/javascript">moveProgressBar('69.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require last_name to be set</span><span class='duration'>0.04124s</span></dd>
+    <script type="text/javascript">moveProgressBar('70.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should ensure password has a length between 6 and 32</span><span class='duration'>0.15915s</span></dd>
+    <script type="text/javascript">moveProgressBar('71.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require first_name to be set</span><span class='duration'>0.20585s</span></dd>
+    <script type="text/javascript">moveProgressBar('72.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should ensure last_name has a length between 2 and 30</span><span class='duration'>0.21495s</span></dd>
+    <script type="text/javascript">moveProgressBar('73.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require email to be set</span><span class='duration'>0.20426s</span></dd>
+    <script type="text/javascript">moveProgressBar('74.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should ensure first_name has a length between 2 and 30</span><span class='duration'>0.20639s</span></dd>
+  </dl>
+</div>
+<div id="div_group_36" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_36" class="passed">#reset_authentication_token!</dt>
+    <script type="text/javascript">moveProgressBar('75.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should call the SecureRandom lib to generate a token</span><span class='duration'>0.20238s</span></dd>
+    <script type="text/javascript">moveProgressBar('76.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">resets the authentication token</span><span class='duration'>0.15708s</span></dd>
+  </dl>
+</div>
+<div id="div_group_37" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_37" class="passed">invalid values</dt>
+  </dl>
+</div>
+<div id="div_group_38" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_38" class="passed">empty strings</dt>
+    <script type="text/javascript">moveProgressBar('77.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow last_name to be set to &quot;thirty characters long string for last name of a user &quot;</span><span class='duration'>0.07540s</span></dd>
+    <script type="text/javascript">moveProgressBar('78.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow first_name to be set to &quot;J&quot;</span><span class='duration'>0.19402s</span></dd>
+    <script type="text/javascript">moveProgressBar('79.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow last_name to be set to &quot;N&quot;</span><span class='duration'>0.18827s</span></dd>
+    <script type="text/javascript">moveProgressBar('80.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow last_name to be set to &quot;&quot;</span><span class='duration'>0.20515s</span></dd>
+    <script type="text/javascript">moveProgressBar('81.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow first_name to be set to &quot;    &quot;</span><span class='duration'>0.20803s</span></dd>
+    <script type="text/javascript">moveProgressBar('82.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow email to be set to &quot;testdomain.com&quot;</span><span class='duration'>0.20982s</span></dd>
+    <script type="text/javascript">moveProgressBar('83.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow email to be set to &quot;    &quot;</span><span class='duration'>0.05998s</span></dd>
+    <script type="text/javascript">moveProgressBar('84.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow email to be set to &quot;test@domain&quot;</span><span class='duration'>0.15482s</span></dd>
+    <script type="text/javascript">moveProgressBar('85.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow first_name to be set to &quot;&quot;</span><span class='duration'>0.19173s</span></dd>
+    <script type="text/javascript">moveProgressBar('86.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow first_name to be set to &quot;thirty characters long string for first name of a user&quot;</span><span class='duration'>0.20544s</span></dd>
+    <script type="text/javascript">moveProgressBar('87.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow email to be set to &quot;&quot;</span><span class='duration'>0.21127s</span></dd>
+    <script type="text/javascript">moveProgressBar('88.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow email to be set to &quot;test&quot;</span><span class='duration'>0.20583s</span></dd>
+    <script type="text/javascript">moveProgressBar('89.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not allow last_name to be set to &quot;    &quot;</span><span class='duration'>0.20466s</span></dd>
+  </dl>
+</div>
+<div id="div_group_39" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_39" class="passed">Api::V1::LocationsController</dt>
+  </dl>
+</div>
+<div id="div_group_40" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_40" class="passed">#create</dt>
+    <script type="text/javascript">moveProgressBar('90.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should respond with a business not found if no business exists</span><span class='duration'>0.09393s</span></dd>
+    <script type="text/javascript">moveProgressBar('91.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should respond with a success status code and create template</span><span class='duration'>0.10662s</span></dd>
+    <script type="text/javascript">moveProgressBar('92.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should raise an error if the user does not own the business</span><span class='duration'>0.20228s</span></dd>
+  </dl>
+</div>
+<div id="div_group_41" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_41" class="passed">SessionsController</dt>
+  </dl>
+</div>
+<div id="div_group_42" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_42" class="passed">#create</dt>
+  </dl>
+</div>
+<div id="div_group_43" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_43" class="passed">authentication failed</dt>
+    <script type="text/javascript">moveProgressBar('93.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return error that authentication failed</span><span class='duration'>0.20989s</span></dd>
+    <script type="text/javascript">moveProgressBar('94.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return user account is not active if not active</span><span class='duration'>0.20776s</span></dd>
+  </dl>
+</div>
+<div id="div_group_44" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_44" class="passed">authentication successful</dt>
+    <script type="text/javascript">moveProgressBar('95.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return users token</span><span class='duration'>0.20747s</span></dd>
+  </dl>
+</div>
+<div id="div_group_45" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_45" class="passed">Api::V1::PasswordResetsController</dt>
+  </dl>
+</div>
+<div id="div_group_46" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_46" class="passed">#create</dt>
+  </dl>
+</div>
+<div id="div_group_47" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_47" class="passed">when user with email does not exist</dt>
+    <script type="text/javascript">moveProgressBar('96.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should render a positive message</span><span class='duration'>0.21056s</span></dd>
+    <script type="text/javascript">moveProgressBar('97.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should generate a user password reset token</span><span class='duration'>0.12101s</span></dd>
+  </dl>
+</div>
+<div id="div_group_48" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_48" class="passed">when user with email exists</dt>
+    <script type="text/javascript">moveProgressBar('98.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should render a positive message</span><span class='duration'>0.08822s</span></dd>
+    <script type="text/javascript">moveProgressBar('99.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should generate a user password reset token</span><span class='duration'>0.21416s</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should hand over the email and reset job to the worker</span><span class='duration'>0.19996s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>19.87960 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "103 examples, 0 failures, 3 pending";</script>
 </div>
 </div>
 </body>
 </html>
 
-Randomized with seed 61173
+Randomized with seed 30156
 

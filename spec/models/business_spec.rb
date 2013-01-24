@@ -97,10 +97,6 @@ describe Business do
         response[:errors].should be_nil
       end
 
-      it "should prevent from mass assignment and filter other params" do
-        pending "This is actually a major security concern that can allow someone to mass update a business via the API"
-      end
-
     end
 
   end
