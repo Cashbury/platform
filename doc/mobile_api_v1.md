@@ -95,6 +95,9 @@ email   =  'narang.jasdeep@gmail.com'
 ### Available Methods:
 
 * Create Business
+* Reset Business PIN
+
+#### Create (Signup)
 
 `POST /api/v1/businesses.json`
 
@@ -123,6 +126,27 @@ business[master_pin]   = '9990'
 }
 ```
 
+#### Reset Business PIN
+
+`PUT /api/v1/business_pin/:business_id.json`
+
+**REQUEST**
+
+```javascript
+business[id]          = 10
+business[master_pin]  = 9999 
+```
+
+**RESPONSE:**
+
+```javascript
+{
+  "messages" : [
+    "Successfully updated your Master PIN"
+  ]
+}
+```
+
 ----
 
 ## 3. Locations
@@ -134,8 +158,17 @@ business[master_pin]   = '9990'
 `POST /api/v1/locations.json`
 
 **REQUEST:**
-```
-TODO
+```javascript
+location[state] = ON
+location[is_mobile] = true
+location[street_address] = 49 Avalanche Cres
+location[name] = Toronto Location
+location[description] = some description
+location[country] = Canada
+location[business_id] = 1
+location[city] = Brampton
+location[postal_code] = L6P 1L8
+location[featured_image] = http://google.com/image.jpg
 ```
 
 **RESPONSE:**
