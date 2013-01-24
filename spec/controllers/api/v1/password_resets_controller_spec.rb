@@ -35,12 +35,12 @@ describe Api::V1::PasswordResetsController do
         User.stub(:find_by_email).with('narang.jasdeep@gmail.com') { nil }
       end
 
-      it "should generate a user password reset token" do
+      it "should respond with an unprocessable entity status code (error)" do
         post :create, email: 'narang.jasdeep@gmail.com', format: :json
         response.status.should == 422
       end
 
-      it "should render a positive message" do
+      it "should render error messages" do
         post :create, email: 'narang.jasdeep@gmail.com', format: :json
         JSON.parse(response.body).should include("errors")
       end
