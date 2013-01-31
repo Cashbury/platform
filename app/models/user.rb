@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   end
 
   before_create :reset_authentication_token!
+  after_save    :notify
 
   has_many :marketing_money_accounts, class_name: 'Account::MarketingMoney', foreign_key: 'owner_id'
   has_many :authentications, :dependent => :destroy
@@ -23,6 +24,10 @@ class User < ActiveRecord::Base
 
   def reset_authentication_token!
     self.authentication_token = SecureRandom.hex(24)
+  end
+
+  def notify
+    ActiveSupport::Notifications.instrument("cashbury.user.registration", :dispatcher => self )
   end
 
 end

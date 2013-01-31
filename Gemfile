@@ -12,6 +12,7 @@ gem 'slim'
 gem 'rolify'
 gem 'haml'
 gem 'strong_parameters'
+gem 'activerecord-postgres-hstore', git: 'git://github.com/softa/activerecord-postgres-hstore.git'
 
 # Gems used only for assets and not required
 # in production environments by default.

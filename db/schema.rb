@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124030147) do
+ActiveRecord::Schema.define(:version => 20130131173846) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(:version => 20130124030147) do
     t.datetime "updated_at",         :null => false
     t.string   "subdomain",          :null => false
     t.string   "master_pin"
+  end
+
+  create_table "events", :force => true do |t|
+    t.datetime "start"
+    t.datetime "finish"
+    t.string   "name"
+    t.text     "dispatcher"
+    t.text     "receiver"
+    t.text     "payload"
   end
 
   create_table "locations", :force => true do |t|
