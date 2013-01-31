@@ -43,6 +43,20 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
+--
+-- Name: hstore; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA jasdeep;
+
+
+--
+-- Name: EXTENSION hstore; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION hstore IS 'data type for storing sets of (key, value) pairs';
+
+
 SET search_path = jasdeep, pg_catalog;
 
 SET default_tablespace = '';
@@ -123,6 +137,40 @@ CREATE SEQUENCE businesses_id_seq
 --
 
 ALTER SEQUENCE businesses_id_seq OWNED BY businesses.id;
+
+
+--
+-- Name: events; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE events (
+    id integer NOT NULL,
+    start timestamp without time zone,
+    finish timestamp without time zone,
+    name character varying(255),
+    dispatcher text,
+    receiver text,
+    payload text
+);
+
+
+--
+-- Name: events_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE events_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: events_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE events_id_seq OWNED BY events.id;
 
 
 --
@@ -958,6 +1006,13 @@ ALTER TABLE ONLY businesses ALTER COLUMN id SET DEFAULT nextval('businesses_id_s
 -- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
 --
 
+ALTER TABLE ONLY events ALTER COLUMN id SET DEFAULT nextval('events_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
 ALTER TABLE ONLY locations ALTER COLUMN id SET DEFAULT nextval('locations_id_seq'::regclass);
 
 
@@ -1109,6 +1164,14 @@ ALTER TABLE ONLY authentications
 
 ALTER TABLE ONLY businesses
     ADD CONSTRAINT businesses_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: events_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY events
+    ADD CONSTRAINT events_pkey PRIMARY KEY (id);
 
 
 --
@@ -1442,3 +1505,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130110042425');
 INSERT INTO schema_migrations (version) VALUES ('20130123032438');
 
 INSERT INTO schema_migrations (version) VALUES ('20130124030147');
+
+INSERT INTO schema_migrations (version) VALUES ('20130131173846');
