@@ -31,7 +31,7 @@ describe Business do
   end
   
   let(:business) { stub_model(Business) }
-  let(:user) { stub_model(User) }
+  let(:user)     { stub_model(User) }
 
   describe "#downcase_subdomain" do
 

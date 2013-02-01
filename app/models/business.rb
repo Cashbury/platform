@@ -43,7 +43,6 @@ class Business < ActiveRecord::Base
 
   def create_new_for(user)    
     if self.save
-      # complete the operation as an atomic operation
       self.transaction do
         user.add_role :admin, self
       end

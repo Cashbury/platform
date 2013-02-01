@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(:version => 20130201023602) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "campaigns", :force => true do |t|
+    t.string   "name"
+    t.integer  "campaign_type_id"
+    t.datetime "start_date"
+    t.datetime "end_time"
+    t.string   "state"
+  end
+
   create_table "events", :force => true do |t|
     t.datetime "start"
     t.datetime "finish"
@@ -89,6 +97,38 @@ ActiveRecord::Schema.define(:version => 20130201023602) do
     t.integer "business_id"
     t.decimal "balance",     :precision => 8, :scale => 2, :default => 0.0
     t.decimal "limit",       :precision => 8, :scale => 2, :default => 1000.0
+  end
+
+  create_table "marketing_prizes", :force => true do |t|
+    t.string   "name"
+    t.string   "prizeable_type"
+    t.string   "prizeable_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "prize_items", :force => true do |t|
+    t.string   "prize_name"
+    t.string   "description"
+    t.string   "picture"
+    t.string   "redemption_method"
+    t.integer  "quantity_available"
+    t.datetime "created_at",                                                        :null => false
+    t.datetime "updated_at",                                                        :null => false
+    t.decimal  "value",              :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "cost",               :precision => 8, :scale => 2, :default => 0.0
+  end
+
+  create_table "prize_marketing_money", :force => true do |t|
+    t.string   "prize_name"
+    t.string   "description"
+    t.string   "picture"
+    t.string   "redemption_method"
+    t.integer  "quantity_available"
+    t.datetime "created_at",                                                        :null => false
+    t.datetime "updated_at",                                                        :null => false
+    t.decimal  "value",              :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "cost",               :precision => 8, :scale => 2, :default => 0.0
   end
 
   create_table "roles", :force => true do |t|
