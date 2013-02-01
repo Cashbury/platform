@@ -22,14 +22,18 @@ describe Account::MarketingMoney do
       marketing_account.balance = 0.00
     end
 
-    it "should load the specified amount of money into the account" do
-      marketing_account.load(100.00)
-      marketing_account.balance.to_f.should == 100.00
-    end
+    describe 'success scenarios' do
 
-    it "should load the specified amount when a castable string is loaded" do
-      marketing_account.load('20.15')
-      marketing_account.balance.to_f.should == 20.15
+      it "should load the specified amount of money into the account" do
+        marketing_account.load(100.00)
+        marketing_account.balance.to_f.should == 100.00
+      end
+
+      it "should load the specified amount when a castable string is loaded" do
+        marketing_account.load('20.15')
+        marketing_account.balance.to_f.should == 20.15
+      end
+
     end
 
     describe 'error scenarios' do
@@ -76,14 +80,18 @@ describe Account::MarketingMoney do
       marketing_account.balance = 100.00
     end
 
-    it "should withdraw the specified amount of money from account" do
-      marketing_account.withdraw(10.95)
-      marketing_account.balance.should == 89.05
-    end
+    describe 'success scenarios' do
 
-    it "should withdraw the specified amount when a castable string is withdrawn" do
-      marketing_account.withdraw('20.15')
-      marketing_account.balance.to_f.should == 79.85
+      it "should withdraw the specified amount of money from account" do
+        marketing_account.withdraw(10.95)
+        marketing_account.balance.should == 89.05
+      end
+
+      it "should withdraw the specified amount when a castable string is withdrawn" do
+        marketing_account.withdraw('20.15')
+        marketing_account.balance.to_f.should == 79.85
+      end
+      
     end
 
     describe 'error scenarios' do

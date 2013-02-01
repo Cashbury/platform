@@ -140,6 +140,39 @@ ALTER SEQUENCE businesses_id_seq OWNED BY businesses.id;
 
 
 --
+-- Name: campaigns; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE campaigns (
+    id integer NOT NULL,
+    name character varying(255),
+    campaign_type_id integer,
+    start_date timestamp without time zone,
+    end_time timestamp without time zone,
+    state character varying(255)
+);
+
+
+--
+-- Name: campaigns_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE campaigns_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: campaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE campaigns_id_seq OWNED BY campaigns.id;
+
+
+--
 -- Name: events; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
 --
 
@@ -247,6 +280,113 @@ CREATE SEQUENCE marketing_money_account_id_seq
 --
 
 ALTER SEQUENCE marketing_money_account_id_seq OWNED BY marketing_money_account.id;
+
+
+--
+-- Name: marketing_prizes; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE marketing_prizes (
+    id integer NOT NULL,
+    name character varying(255),
+    prizeable_type character varying(255),
+    prizeable_id character varying(255),
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: marketing_prizes_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE marketing_prizes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: marketing_prizes_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE marketing_prizes_id_seq OWNED BY marketing_prizes.id;
+
+
+--
+-- Name: prize_items; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE prize_items (
+    id integer NOT NULL,
+    prize_name character varying(255),
+    description character varying(255),
+    picture character varying(255),
+    redemption_method character varying(255),
+    quantity_available integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    value numeric(8,2) DEFAULT 0.0,
+    cost numeric(8,2) DEFAULT 0.0
+);
+
+
+--
+-- Name: prize_items_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE prize_items_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: prize_items_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE prize_items_id_seq OWNED BY prize_items.id;
+
+
+--
+-- Name: prize_marketing_money; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE prize_marketing_money (
+    id integer NOT NULL,
+    prize_name character varying(255),
+    description character varying(255),
+    picture character varying(255),
+    redemption_method character varying(255),
+    quantity_available integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    value numeric(8,2) DEFAULT 0.0,
+    cost numeric(8,2) DEFAULT 0.0
+);
+
+
+--
+-- Name: prize_marketing_money_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE prize_marketing_money_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: prize_marketing_money_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE prize_marketing_money_id_seq OWNED BY prize_marketing_money.id;
 
 
 --
@@ -1006,6 +1146,13 @@ ALTER TABLE ONLY businesses ALTER COLUMN id SET DEFAULT nextval('businesses_id_s
 -- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
 --
 
+ALTER TABLE ONLY campaigns ALTER COLUMN id SET DEFAULT nextval('campaigns_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
 ALTER TABLE ONLY events ALTER COLUMN id SET DEFAULT nextval('events_id_seq'::regclass);
 
 
@@ -1021,6 +1168,27 @@ ALTER TABLE ONLY locations ALTER COLUMN id SET DEFAULT nextval('locations_id_seq
 --
 
 ALTER TABLE ONLY marketing_money_account ALTER COLUMN id SET DEFAULT nextval('marketing_money_account_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
+ALTER TABLE ONLY marketing_prizes ALTER COLUMN id SET DEFAULT nextval('marketing_prizes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
+ALTER TABLE ONLY prize_items ALTER COLUMN id SET DEFAULT nextval('prize_items_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
+ALTER TABLE ONLY prize_marketing_money ALTER COLUMN id SET DEFAULT nextval('prize_marketing_money_id_seq'::regclass);
 
 
 --
@@ -1167,6 +1335,14 @@ ALTER TABLE ONLY businesses
 
 
 --
+-- Name: campaigns_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY campaigns
+    ADD CONSTRAINT campaigns_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: events_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
 --
 
@@ -1188,6 +1364,30 @@ ALTER TABLE ONLY locations
 
 ALTER TABLE ONLY marketing_money_account
     ADD CONSTRAINT marketing_money_account_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: marketing_prizes_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY marketing_prizes
+    ADD CONSTRAINT marketing_prizes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: prize_items_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY prize_items
+    ADD CONSTRAINT prize_items_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: prize_marketing_money_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY prize_marketing_money
+    ADD CONSTRAINT prize_marketing_money_pkey PRIMARY KEY (id);
 
 
 --
@@ -1507,3 +1707,9 @@ INSERT INTO schema_migrations (version) VALUES ('20130123032438');
 INSERT INTO schema_migrations (version) VALUES ('20130124030147');
 
 INSERT INTO schema_migrations (version) VALUES ('20130131173846');
+
+INSERT INTO schema_migrations (version) VALUES ('20130131232805');
+
+INSERT INTO schema_migrations (version) VALUES ('20130131235707');
+
+INSERT INTO schema_migrations (version) VALUES ('20130201010136');

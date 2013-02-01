@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe "Events" do
 
   describe "in cashbury.user.* namespace" do
