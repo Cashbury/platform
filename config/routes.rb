@@ -12,6 +12,7 @@ Platform::Application.routes.draw do
       resources :users
       resources :businesses
       resources :locations
+      resources :campaigns
       resources :password_resets, only: :create
       resources :business_pin,    only: :update
 

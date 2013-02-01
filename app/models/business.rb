@@ -7,6 +7,7 @@ class Business < ActiveRecord::Base
   attr_accessible :billing_address_id, :country_id, :currency_id, :description, :featured, :legal_name, :logo, :mailing_address_id, :name, :notes, :state, :subdomain, :master_pin
 
   has_many :locations
+  has_many :campaigns, class_name: 'Marketing::Campaign'
 
   validates_presence_of :legal_name, :description, :name, :state, :subdomain
   validates :legal_name, :length => {minimum: 2, :maximum => 50}
@@ -33,6 +34,7 @@ class Business < ActiveRecord::Base
         { errors: business.errors.full_messages }
       end
     end
+    
   end
 
   def downcase_subdomain
