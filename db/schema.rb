@@ -124,6 +124,17 @@ ActiveRecord::Schema.define(:version => 20130201023602) do
     t.string   "postal_code",    :null => false
   end
 
+  create_table "marketing_campaigns", :force => true do |t|
+    t.string   "name"
+    t.integer  "campaign_type_id"
+    t.integer  "business_id"
+    t.datetime "start_date"
+    t.datetime "end_time"
+    t.string   "state"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "marketing_money_account", :force => true do |t|
     t.integer "owner_id"
     t.string  "state"
@@ -136,6 +147,7 @@ ActiveRecord::Schema.define(:version => 20130201023602) do
     t.string   "name"
     t.string   "prizeable_type"
     t.string   "prizeable_id"
+    t.integer  "campaign_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

@@ -281,6 +281,42 @@ ALTER SEQUENCE locations_id_seq OWNED BY locations.id;
 
 
 --
+-- Name: marketing_campaigns; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE marketing_campaigns (
+    id integer NOT NULL,
+    name character varying(255),
+    campaign_type_id integer,
+    business_id integer,
+    start_date timestamp without time zone,
+    end_time timestamp without time zone,
+    state character varying(255),
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: marketing_campaigns_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE marketing_campaigns_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: marketing_campaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE marketing_campaigns_id_seq OWNED BY marketing_campaigns.id;
+
+
+--
 -- Name: marketing_money_account; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
 --
 
@@ -322,6 +358,7 @@ CREATE TABLE marketing_prizes (
     name character varying(255),
     prizeable_type character varying(255),
     prizeable_id character varying(255),
+    campaign_id integer,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -1205,6 +1242,13 @@ ALTER TABLE ONLY locations ALTER COLUMN id SET DEFAULT nextval('locations_id_seq
 -- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
 --
 
+ALTER TABLE ONLY marketing_campaigns ALTER COLUMN id SET DEFAULT nextval('marketing_campaigns_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
 ALTER TABLE ONLY marketing_money_account ALTER COLUMN id SET DEFAULT nextval('marketing_money_account_id_seq'::regclass);
 
 
@@ -1402,6 +1446,14 @@ ALTER TABLE ONLY events
 
 ALTER TABLE ONLY locations
     ADD CONSTRAINT locations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: marketing_campaigns_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY marketing_campaigns
+    ADD CONSTRAINT marketing_campaigns_pkey PRIMARY KEY (id);
 
 
 --
