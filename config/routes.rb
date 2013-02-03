@@ -15,6 +15,10 @@ Platform::Application.routes.draw do
       resources :password_resets, only: :create
       resources :business_pin,    only: :update
 
+      namespace :marketing do
+        resources :prizes, only: :create
+      end
+
       post 'sessions' => 'sessions#create'
     end
   end
