@@ -45,14 +45,6 @@ ActiveRecord::Schema.define(:version => 20130201023602) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "campaigns", :force => true do |t|
-    t.string   "name"
-    t.integer  "campaign_type_id"
-    t.datetime "start_date"
-    t.datetime "end_time"
-    t.string   "state"
-  end
-
   create_table "events", :force => true do |t|
     t.datetime "start"
     t.datetime "finish"
