@@ -5,6 +5,7 @@ class AddPrizesTable < ActiveRecord::Migration
       t.string    :name
       t.string    :prizeable_type
       t.string    :prizeable_id
+      t.integer   :campaign_id
       t.timestamps
     end
   end
