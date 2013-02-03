@@ -20,7 +20,6 @@ describe Api::V1::CampaignsController do
   describe '#create' do
 
     it "should respond with a success status code and create template" do
-
       business = stub_model(Business, id: 10) 
       Business.stub(:find).with(10) { business }
       campaign_type = stub_model(CampaignType, id: 5) 
