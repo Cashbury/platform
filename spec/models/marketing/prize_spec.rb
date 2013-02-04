@@ -10,7 +10,7 @@ describe Marketing::Prize do
     :redemption_method  => 'pickup',
     :quantity_available => '12',
     :prizeable_type     => 'Prize::Item',
-    #:campaign_id        => 11
+    :campaign_id        => 11
     }
   }
 
@@ -49,6 +49,7 @@ describe Marketing::Prize do
       describe 'error scenarios' do
 
         before(:each) do
+          prize[:campaign_id] = 11
           prize[:prizeable_type] = 'Prize::Item'
           prize[:prize_name] = nil
         end
@@ -62,6 +63,10 @@ describe Marketing::Prize do
 
         it "should render error if prizeable_type is not present" do
           pending 'should output a graceful error if prizeable_type is not defined'
+        end
+
+        it "should render error if campaign_id is not present" do
+          
         end
 
       end

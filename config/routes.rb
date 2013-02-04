@@ -12,12 +12,12 @@ Platform::Application.routes.draw do
       resources :users
       resources :businesses
       resources :locations
-      resources :campaigns
       resources :password_resets, only: :create
       resources :business_pin,    only: :update
 
       namespace :marketing do
         resources :prizes, only: :create
+        resources :campaigns
       end
 
       post 'sessions' => 'sessions#create'

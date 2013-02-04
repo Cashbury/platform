@@ -13,6 +13,7 @@
 * Users
 * Business
 * Location
+* Campaigns
 * Accounts
   * Marketing Money Account
   * Money Account
@@ -197,3 +198,39 @@ location[featured_image] = http://google.com/image.jpg
   }
 }
 ```
+
+## 4. Campaigns
+
+### Available Methods:
+
+* Create Campaign
+
+`POST /api/v1/campaign.json`
+
+**REQUEST:**
+```javascript
+campaign[campaign_type_id]  = 1 # Spin2Win
+campaign[name]              = "my iPad Campaign"
+campaign[start_date]        = "some date"
+campaign[end_date]          = "some date"
+campaign[business_id]       = "10"
+```
+
+**RESPONSE:**
+```javascript
+{
+    "id": 4,
+    "name": "my iPad Campaign",
+    "campaign_type_id": 1,
+    "start_date": null,
+    "end_date": null,
+    "business_id": 2
+}
+```
+
+
+# Drafts of API Endpoints:
+
+## Engagments
+
+`POST /api/v1/campaign/:id/`

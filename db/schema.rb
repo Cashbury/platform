@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(:version => 20130201023602) do
     t.integer  "campaign_type_id"
     t.integer  "business_id"
     t.datetime "start_date"
-    t.datetime "end_time"
+    t.datetime "end_date"
     t.string   "state"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false

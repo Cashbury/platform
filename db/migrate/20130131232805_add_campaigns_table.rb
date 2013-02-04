@@ -6,7 +6,7 @@ class AddCampaignsTable < ActiveRecord::Migration
       t.integer   :campaign_type_id
       t.integer   :business_id
       t.datetime  :start_date
-      t.datetime  :end_time
+      t.datetime  :end_date
       t.string    :state
       t.timestamps
     end

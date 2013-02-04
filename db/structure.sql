@@ -290,7 +290,7 @@ CREATE TABLE marketing_campaigns (
     campaign_type_id integer,
     business_id integer,
     start_date timestamp without time zone,
-    end_time timestamp without time zone,
+    end_date timestamp without time zone,
     state character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL

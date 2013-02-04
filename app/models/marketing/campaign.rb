@@ -3,6 +3,7 @@ class Marketing::Campaign < ActiveRecord::Base
 
   belongs_to :business
   has_one :campaign_type
+  has_many :prizes, :class_name => 'Marketing::Prize'
 
   validates :name, :presence => true
   validates :campaign_type_id, :presence => true
