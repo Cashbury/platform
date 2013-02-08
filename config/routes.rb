@@ -5,6 +5,8 @@ Platform::Application.routes.draw do
 
   get "oauths/callback"
 
+  get "/new" => 'oauths#test'
+
   mount Sidekiq::Web, at: '/sidekiq'
 
   namespace :api do

@@ -231,6 +231,47 @@ campaign[business_id]       = "10"
 
 # Drafts of API Endpoints:
 
-## Engagments
+## Engagments: Spends + Tokens + Social Interactions
 
-`POST /api/v1/campaign/:id/`
+`POST /api/v1/campaign/:id/engage.json`
+
+**PAYLOAD:**
+```javascript
+{
+  transaction: {
+    ## transaction payload
+  },
+  issue_play_credits: {
+    ## how many credits/tokens to add to user
+  },
+  social_interactions: {
+    facebook: true,
+    twitter:  true
+  }
+}
+```
+
+* need to flush out more of this.
+
+## Accounts:
+
+`GET /api/v1/accounts/:business_id/marketing_money.json`
+`GET /api/v1/accounts/:business_id/marketing_money/:account_id.json`
+
+OR 
+
+`GET /api/v1/accounts/:account_id.json`
+
+## Play Tokens:
+
+`GET /api/v1/accounts/:business_id/play_tokens.json`
+
+## Meeting Minutes: ->
+
+### Prize States
+### Unlocking of Prizes - Manual Trigger
+### User Prizes - In Progress (Rename UnlockedPrizes)
+### Redeeming - Item Prizes
+### Unlocking - Marketing Money (Automated)
+
+### Engage Endpoint (Tieing everything above)
