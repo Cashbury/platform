@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Marketing::Prize do
 
   let(:user)  { stub_model(User) }
-  let(:marketing_prize) { stub_model(Marketing::Prize) }
+  let(:marketing_prize) { stub_model(Marketing::Prize, name: 'Some Prize Item') }
   let(:prize) { {
     :prize_name         => 'iPad 4 64 GB',
     :description        => 'Latest iPad 4 for prize',
@@ -78,10 +78,24 @@ describe Marketing::Prize do
 
   describe "#unlock_prize(user)" do
 
-    it "should award the prize to a user" do
+    let(:prizeable) { stub_model(Prize::Item, quantity_available: 10) }
+
+    before(:each) do
+      marketing_prize.stub(:prizeable) { prizeable }
       marketing_prize.unlock_for(user)
-      user.prizes.should include(marketing_prize)
+    end
+
+    it "should add a prize instance to user_prizes" do
       user.user_prizes.should_not be_nil
+    end
+
+    it "should award the prize to a user" do
+      user.prizes.should include(marketing_prize)
+    end
+
+    it "should reduce the available quantity and call decrement quantity" do
+      prizeable.should_receive(:decrement_quantity) 
+      marketing_prize.unlock_for(user)
     end
 
   end

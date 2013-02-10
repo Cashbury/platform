@@ -29,7 +29,10 @@ class Marketing::Prize < ActiveRecord::Base
   end
 
   def unlock_for(user)
-    user.prizes << self
+    transaction do
+      self.prizeable.decrement_quantity
+      user.prizes << self
+    end
   end
 
 end

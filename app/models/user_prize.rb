@@ -4,4 +4,12 @@ class UserPrize < ActiveRecord::Base
   belongs_to :user
   belongs_to :prize, class_name: 'Marketing::Prize'
 
+  state_machine :state, :initial => :unlocked do
+    
+    event :redeem do
+      transition :unlocked => :redeemed
+    end
+
+  end
+
 end
