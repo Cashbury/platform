@@ -4,6 +4,8 @@ class Marketing::Prize < ActiveRecord::Base
   validates :name, :presence => true
   belongs_to :prizeable, :polymorphic => true
   belongs_to :campaign, class_name: 'Marketing::Campaign'
+  has_many :user_prizes
+  has_many :users, through: :user_prizes
 
   class << self
 
@@ -25,4 +27,9 @@ class Marketing::Prize < ActiveRecord::Base
     end
 
   end
+
+  def unlock_for(user)
+    user.prizes << self
+  end
+
 end

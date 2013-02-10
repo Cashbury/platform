@@ -500,6 +500,39 @@ CREATE TABLE schema_migrations (
 
 
 --
+-- Name: user_prizes; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE user_prizes (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    prize_id integer NOT NULL,
+    state character varying(255) DEFAULT 'unlocked'::character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: user_prizes_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE user_prizes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: user_prizes_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE user_prizes_id_seq OWNED BY user_prizes.id;
+
+
+--
 -- Name: users; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
 --
 
@@ -1284,6 +1317,13 @@ ALTER TABLE ONLY roles ALTER COLUMN id SET DEFAULT nextval('roles_id_seq'::regcl
 -- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
 --
 
+ALTER TABLE ONLY user_prizes ALTER COLUMN id SET DEFAULT nextval('user_prizes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -1494,6 +1534,14 @@ ALTER TABLE ONLY prize_marketing_money
 
 ALTER TABLE ONLY roles
     ADD CONSTRAINT roles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: user_prizes_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY user_prizes
+    ADD CONSTRAINT user_prizes_pkey PRIMARY KEY (id);
 
 
 --
@@ -1813,3 +1861,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130131235707');
 INSERT INTO schema_migrations (version) VALUES ('20130201010136');
 
 INSERT INTO schema_migrations (version) VALUES ('20130201023602');
+
+INSERT INTO schema_migrations (version) VALUES ('20130209214351');

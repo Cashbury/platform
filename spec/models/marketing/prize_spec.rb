@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Marketing::Prize do
 
-  let(:user) { stub_model(User) }
+  let(:user)  { stub_model(User) }
+  let(:marketing_prize) { stub_model(Marketing::Prize) }
   let(:prize) { {
     :prize_name         => 'iPad 4 64 GB',
     :description        => 'Latest iPad 4 for prize',
@@ -13,10 +14,6 @@ describe Marketing::Prize do
     :campaign_id        => 11
     }
   }
-
-  before(:each) do
-    @param = { prize: prize }
-  end
 
   describe 'validations' do
     it { should validate_presence_of :name }
@@ -35,6 +32,10 @@ describe Marketing::Prize do
   describe 'class methods' do
 
     describe '.api_create' do
+
+      before(:each) do
+        @param = { prize: prize }
+      end
 
       describe 'success scenarios' do
 
@@ -71,6 +72,16 @@ describe Marketing::Prize do
 
       end
 
+    end
+
+  end
+
+  describe "#unlock_prize(user)" do
+
+    it "should award the prize to a user" do
+      marketing_prize.unlock_for(user)
+      user.prizes.should include(marketing_prize)
+      user.user_prizes.should_not be_nil
     end
 
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130201023602) do
+ActiveRecord::Schema.define(:version => 20130209214351) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -201,6 +201,14 @@ ActiveRecord::Schema.define(:version => 20130201023602) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "user_prizes", :force => true do |t|
+    t.integer  "user_id",                            :null => false
+    t.integer  "prize_id",                           :null => false
+    t.string   "state",      :default => "unlocked"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

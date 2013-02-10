@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   has_many :marketing_money_accounts, class_name: 'Account::MarketingMoney', foreign_key: 'owner_id'
   has_many :authentications, :dependent => :destroy
+  has_many :user_prizes
+  has_many :prizes, through: :user_prizes
   accepts_nested_attributes_for :authentications
 
   validates_presence_of :email
