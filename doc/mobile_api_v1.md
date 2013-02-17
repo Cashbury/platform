@@ -268,10 +268,9 @@ OR
 
 ## Meeting Minutes: ->
 
-### Prize States
-### Unlocking of Prizes - Manual Trigger
-### User Prizes - In Progress (Rename UnlockedPrizes)
-### Redeeming - Item Prizes
-### Unlocking - Marketing Money (Automated)
+### Redeeming - Item Prizes - API Endpoint
+### Unlocking - Marketing Money (Automated) - Adjustments - States
 
 ### Engage Endpoint (Tieing everything above)
+### Storing Tokens (business_id / location_id / time: / geolocation / user_id)
+### Mailin Redemption Method / Verifier

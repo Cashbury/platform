@@ -4,6 +4,7 @@ class Marketing::Prize < ActiveRecord::Base
   validates :name, :presence => true
   belongs_to :prizeable, :polymorphic => true
   belongs_to :campaign, class_name: 'Marketing::Campaign'
+  has_one :business, through: :campaign
   has_many :user_prizes
   has_many :users, through: :user_prizes
 
@@ -33,6 +34,10 @@ class Marketing::Prize < ActiveRecord::Base
       self.prizeable.decrement_quantity
       user.prizes << self
     end
+  end
+
+  def redemption_method
+    prizeable.redemption_method
   end
 
 end

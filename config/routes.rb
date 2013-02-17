@@ -11,7 +11,11 @@ Platform::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users
+      resources :users do
+        resources :user_prizes, only: :show do
+          member { post :redeem }
+        end
+      end
       resources :businesses
       resources :locations
       resources :password_resets, only: :create

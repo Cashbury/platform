@@ -16,6 +16,7 @@ describe Api::V1::UsersController do
 
       it "should render create.jbuilder view" do
         post :create, user: user, format: :json
+        puts "If this fails - chances are Redis dependency is down."
         response.should be_successful
         response.should render_template("create")
       end
