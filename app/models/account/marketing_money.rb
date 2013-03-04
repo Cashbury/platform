@@ -2,6 +2,8 @@ class Account::MarketingMoney < ActiveRecord::Base
   self.table_name = 'marketing_money_account'
 
   has_one :owner, class_name: 'User'
+  validates_uniqueness_of :owner_id, scope: :business_id
+  scope :for_business, lambda { |business| where('business_id = ?', business.id) }
 
   def load(amount)
     amount = amount.to_d
@@ -21,6 +23,15 @@ class Account::MarketingMoney < ActiveRecord::Base
     return errors.add(:limit,   'Insufficient Funds: Cannot withdraw' ) if amount > old_balance
     self.balance -= amount
     self.save
+  end
+
+  def api_spend(amount)
+    self.withdraw(amount)
+    if self.errors.blank?
+      { success: :ok, object: self }
+    else
+      { errors: self.errors.full_messages}
+    end
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130209214351) do
+ActiveRecord::Schema.define(:version => 20130303201859) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -150,6 +150,14 @@ ActiveRecord::Schema.define(:version => 20130209214351) do
     t.integer  "campaign_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "play_tokens", :force => true do |t|
+    t.string   "state"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "business_id"
   end
 
   create_table "prize_items", :force => true do |t|

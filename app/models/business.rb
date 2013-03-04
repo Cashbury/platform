@@ -8,6 +8,7 @@ class Business < ActiveRecord::Base
 
   has_many :locations
   has_many :campaigns, class_name: 'Marketing::Campaign'
+  has_many :prizes, through: :campaigns
 
   validates_presence_of :legal_name, :description, :name, :state, :subdomain
   validates :legal_name, :length => {minimum: 2, :maximum => 50}
@@ -19,7 +20,6 @@ class Business < ActiveRecord::Base
   validates_format_of :subdomain, :with => /^[a-zA-Z\d]*$/, :message => 'format is invalid, only alphabets and digits are allowed'
 
   before_save :downcase_subdomain
-
 
   class << self
 

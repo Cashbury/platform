@@ -69,4 +69,36 @@ describe User do
 
   end
 
+  describe "#award_tokens(count, business)" do
+
+    let(:business) { stub_model(Business, id: 11) }
+
+    before(:each) do
+      user.stub(:valid) { true }
+      user.stub(:save)  { user }
+    end
+
+    it "should award tokens to the user as per the count and within scope of the business" do
+      user.award_tokens(2, business)
+      user.play_tokens.should_not be_nil
+    end
+
+  end
+
+  describe "#marketing_money_balance_at(business)" do
+
+    let(:business) { stub_model(Business, id: 10) }
+
+    it "returns the marketing money balance at a business for the user" do
+      user.stub_chain(:marketing_money_accounts, :for_business ) { [stub_model(Account::MarketingMoney, balance: 123.45, business_id: 10)] }
+      user.marketing_money_balance_at(business).should == 123.45
+    end
+
+    it "returns 0.00 when there is no marketing account" do
+      user.stub(:marketing_money_accounts) { [] }
+      user.marketing_money_balance_at(business).should == 0.00
+    end
+
+  end
+
 end

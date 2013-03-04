@@ -14,6 +14,9 @@ gem 'haml'
 gem 'strong_parameters'
 gem 'activerecord-postgres-hstore', git: 'git://github.com/softa/activerecord-postgres-hstore.git'
 gem 'state_machine'
+gem 'geocoder'
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -43,6 +46,7 @@ group :development, :test do
   gem 'capybara'
   gem 'pry'
   gem 'database_cleaner'
+  gem 'api_matchers'
 end
 
 # To use ActiveModel has_secure_password

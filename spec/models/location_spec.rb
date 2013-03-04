@@ -73,4 +73,19 @@ describe Location do
 
   end
 
+  describe "#full_address" do
+
+    let(:location) { stub_model(Location, street_address: '4 Boake Street', city: 'Toronto', state: 'ON', country: 'Canada', postal_code: 'M3J0B6' )}
+
+    it "should return the full address of the location" do
+      location.full_address.should == '4 Boake Street, Toronto, ON, M3J0B6, Canada'  
+    end
+
+    it "should skip an address element if not present" do
+      location.city = nil
+      location.full_address.should == '4 Boake Street, ON, M3J0B6, Canada'
+    end
+
+  end
+
 end

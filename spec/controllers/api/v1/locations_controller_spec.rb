@@ -23,6 +23,36 @@ describe Api::V1::LocationsController do
     } 
   }
 
+  describe "#index" do
+
+    context "when there are nearby locations" do
+
+      before(:each) do
+        business = stub_model(Business)
+        Location.stub(:near).with([10,10], 500) { [ stub_model(Location, business: business) ] }
+        get :index, { latitude: 10, longitude: 10, radius: 500, format: :json }
+      end
+
+      it { response.status.should == 200 }
+      it { response.should render_template('index') }
+      it { response.body.should have_node(:locations) }
+
+    end
+
+    context "when there are no nearby locations" do
+      
+      before(:each) do
+        Location.stub(:near).with([10,10], 500) { [] }
+        get :index, { latitude: 10, longitude: 10, radius: 500, format: :json }
+      end
+
+      it { response.status.should == 422 }
+      it { response.body.should have_node(:errors)}
+
+    end
+
+  end
+
   describe '#create' do
 
     it "should respond with a success status code and create template" do

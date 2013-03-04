@@ -16,6 +16,12 @@ describe Account::MarketingMoney do
     Account::MarketingMoney.new.limit.should == 1000.00
   end
 
+  describe "validations" do
+
+    it { should validate_uniqueness_of(:owner_id).scoped_to(:business_id) }
+
+  end
+
   describe '#load' do
 
     before(:each) do

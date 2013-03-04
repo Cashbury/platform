@@ -384,6 +384,39 @@ ALTER SEQUENCE marketing_prizes_id_seq OWNED BY marketing_prizes.id;
 
 
 --
+-- Name: play_tokens; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE play_tokens (
+    id integer NOT NULL,
+    state character varying(255),
+    user_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    business_id integer
+);
+
+
+--
+-- Name: play_tokens_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE play_tokens_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: play_tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE play_tokens_id_seq OWNED BY play_tokens.id;
+
+
+--
 -- Name: prize_items; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
 --
 
@@ -1296,6 +1329,13 @@ ALTER TABLE ONLY marketing_prizes ALTER COLUMN id SET DEFAULT nextval('marketing
 -- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
 --
 
+ALTER TABLE ONLY play_tokens ALTER COLUMN id SET DEFAULT nextval('play_tokens_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
 ALTER TABLE ONLY prize_items ALTER COLUMN id SET DEFAULT nextval('prize_items_id_seq'::regclass);
 
 
@@ -1510,6 +1550,14 @@ ALTER TABLE ONLY marketing_money_account
 
 ALTER TABLE ONLY marketing_prizes
     ADD CONSTRAINT marketing_prizes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: play_tokens_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY play_tokens
+    ADD CONSTRAINT play_tokens_pkey PRIMARY KEY (id);
 
 
 --
@@ -1863,3 +1911,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130201010136');
 INSERT INTO schema_migrations (version) VALUES ('20130201023602');
 
 INSERT INTO schema_migrations (version) VALUES ('20130209214351');
+
+INSERT INTO schema_migrations (version) VALUES ('20130217203511');
+
+INSERT INTO schema_migrations (version) VALUES ('20130303201859');

@@ -16,6 +16,7 @@ Platform::Application.routes.draw do
           member { post :redeem }
         end
       end
+      resources :engagement
       resources :businesses
       resources :locations
       resources :password_resets, only: :create
