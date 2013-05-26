@@ -116,7 +116,8 @@ CREATE TABLE businesses (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     subdomain character varying(255) NOT NULL,
-    master_pin character varying(255)
+    master_pin character varying(255),
+    game_id integer
 );
 
 
@@ -235,6 +236,112 @@ CREATE SEQUENCE events_id_seq
 --
 
 ALTER SEQUENCE events_id_seq OWNED BY events.id;
+
+
+--
+-- Name: game_icons; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE game_icons (
+    id integer NOT NULL,
+    public_name character varying(255),
+    internal_name character varying(255),
+    icon character varying(255),
+    retina_icon character varying(255),
+    game_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: game_icons_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE game_icons_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_icons_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE game_icons_id_seq OWNED BY game_icons.id;
+
+
+--
+-- Name: game_paylines; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE game_paylines (
+    id integer NOT NULL,
+    "position" integer,
+    "group" character varying(255),
+    icon1_id integer,
+    icon2_id integer,
+    icon3_id integer,
+    game_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    probability numeric(15,10)
+);
+
+
+--
+-- Name: game_paylines_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE game_paylines_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_paylines_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE game_paylines_id_seq OWNED BY game_paylines.id;
+
+
+--
+-- Name: games; Type: TABLE; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+CREATE TABLE games (
+    id integer NOT NULL,
+    title character varying(255),
+    country_id integer,
+    max_national_prizes integer,
+    max_merchant_prizes integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: games_id_seq; Type: SEQUENCE; Schema: jasdeep; Owner: -
+--
+
+CREATE SEQUENCE games_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: games_id_seq; Type: SEQUENCE OWNED BY; Schema: jasdeep; Owner: -
+--
+
+ALTER SEQUENCE games_id_seq OWNED BY games.id;
 
 
 --
@@ -360,7 +467,8 @@ CREATE TABLE marketing_prizes (
     prizeable_id character varying(255),
     campaign_id integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    payline_id integer
 );
 
 
@@ -1301,6 +1409,27 @@ ALTER TABLE ONLY events ALTER COLUMN id SET DEFAULT nextval('events_id_seq'::reg
 -- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
 --
 
+ALTER TABLE ONLY game_icons ALTER COLUMN id SET DEFAULT nextval('game_icons_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
+ALTER TABLE ONLY game_paylines ALTER COLUMN id SET DEFAULT nextval('game_paylines_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
+ALTER TABLE ONLY games ALTER COLUMN id SET DEFAULT nextval('games_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: jasdeep; Owner: -
+--
+
 ALTER TABLE ONLY locations ALTER COLUMN id SET DEFAULT nextval('locations_id_seq'::regclass);
 
 
@@ -1518,6 +1647,30 @@ ALTER TABLE ONLY campaigns
 
 ALTER TABLE ONLY events
     ADD CONSTRAINT events_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: game_icons_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY game_icons
+    ADD CONSTRAINT game_icons_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: game_paylines_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY game_paylines
+    ADD CONSTRAINT game_paylines_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: games_pkey; Type: CONSTRAINT; Schema: jasdeep; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY games
+    ADD CONSTRAINT games_pkey PRIMARY KEY (id);
 
 
 --
@@ -1874,6 +2027,16 @@ CREATE INDEX index_users_roles_on_user_id_and_role_id ON users_roles USING btree
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
 
 
+SET search_path = jasdeep, pg_catalog;
+
+--
+-- Name: businesses_game_id_fk; Type: FK CONSTRAINT; Schema: jasdeep; Owner: -
+--
+
+ALTER TABLE ONLY businesses
+    ADD CONSTRAINT businesses_game_id_fk FOREIGN KEY (game_id) REFERENCES games(id);
+
+
 --
 -- PostgreSQL database dump complete
 --
@@ -1915,3 +2078,13 @@ INSERT INTO schema_migrations (version) VALUES ('20130209214351');
 INSERT INTO schema_migrations (version) VALUES ('20130217203511');
 
 INSERT INTO schema_migrations (version) VALUES ('20130303201859');
+
+INSERT INTO schema_migrations (version) VALUES ('20130428205110');
+
+INSERT INTO schema_migrations (version) VALUES ('20130428205317');
+
+INSERT INTO schema_migrations (version) VALUES ('20130428214208');
+
+INSERT INTO schema_migrations (version) VALUES ('20130516031502');
+
+INSERT INTO schema_migrations (version) VALUES ('20130520144044');

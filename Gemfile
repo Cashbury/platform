@@ -15,7 +15,9 @@ gem 'strong_parameters'
 gem 'activerecord-postgres-hstore', git: 'git://github.com/softa/activerecord-postgres-hstore.git'
 gem 'state_machine'
 gem 'geocoder'
-
+gem 'acts_as_list'
+gem 'redis'
+gem 'foreigner'
 
 # Gems used only for assets and not required
 # in production environments by default.

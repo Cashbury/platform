@@ -4,9 +4,13 @@ class Marketing::Prize < ActiveRecord::Base
   validates :name, :presence => true
   belongs_to :prizeable, :polymorphic => true
   belongs_to :campaign, class_name: 'Marketing::Campaign'
+  belongs_to :payline, class_name: 'Game::Payline'
   has_one :business, through: :campaign
   has_many :user_prizes
   has_many :users, through: :user_prizes
+
+  delegate :value, :to => :prizeable
+  delegate :quantity_available, :to => :prizeable
 
   class << self
 
@@ -38,6 +42,11 @@ class Marketing::Prize < ActiveRecord::Base
 
   def redemption_method
     prizeable.redemption_method
+  end
+
+  def assign_to_payline(payline)
+    self.payline = payline
+    save
   end
 
 end

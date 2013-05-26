@@ -9,6 +9,10 @@ class PlayToken < ActiveRecord::Base
 
   state_machine :state, :initial => :unplayed do
     
+    event :play do
+      transition :unplayed => :played
+    end
+    
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303201859) do
+ActiveRecord::Schema.define(:version => 20130520144044) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130303201859) do
     t.datetime "updated_at",         :null => false
     t.string   "subdomain",          :null => false
     t.string   "master_pin"
+    t.integer  "game_id"
   end
 
   create_table "businesses", :force => true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20130303201859) do
     t.datetime "updated_at",         :null => false
     t.string   "subdomain",          :null => false
     t.string   "master_pin"
+    t.integer  "game_id"
   end
 
   create_table "campaign_types", :force => true do |t|
@@ -86,6 +88,37 @@ ActiveRecord::Schema.define(:version => 20130303201859) do
     t.text     "dispatcher"
     t.text     "receiver"
     t.text     "payload"
+  end
+
+  create_table "game_icons", :force => true do |t|
+    t.string   "public_name"
+    t.string   "internal_name"
+    t.string   "icon"
+    t.string   "retina_icon"
+    t.integer  "game_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "game_paylines", :force => true do |t|
+    t.integer  "position"
+    t.string   "group"
+    t.integer  "icon1_id"
+    t.integer  "icon2_id"
+    t.integer  "icon3_id"
+    t.integer  "game_id"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.decimal  "probability", :precision => 15, :scale => 10
+  end
+
+  create_table "games", :force => true do |t|
+    t.string   "title"
+    t.integer  "country_id"
+    t.integer  "max_national_prizes"
+    t.integer  "max_merchant_prizes"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "locations", :force => true do |t|
@@ -150,6 +183,7 @@ ActiveRecord::Schema.define(:version => 20130303201859) do
     t.integer  "campaign_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "payline_id"
   end
 
   create_table "play_tokens", :force => true do |t|
@@ -281,5 +315,9 @@ ActiveRecord::Schema.define(:version => 20130303201859) do
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  add_foreign_key "businesses", "games", :name => "businesses_game_id_fk"
+
+  add_foreign_key "businesses", "games", :name => "businesses_game_id_fk"
 
 end

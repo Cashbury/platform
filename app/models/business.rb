@@ -8,7 +8,9 @@ class Business < ActiveRecord::Base
 
   has_many :locations
   has_many :campaigns, class_name: 'Marketing::Campaign'
-  has_many :prizes, through: :campaigns
+  has_many :prizes, through: :campaigns, :include => :prizeable
+  has_many :paylines, through: :prizes, source: :payline
+  belongs_to :game
 
   validates_presence_of :legal_name, :description, :name, :state, :subdomain
   validates :legal_name, :length => {minimum: 2, :maximum => 50}
@@ -35,6 +37,20 @@ class Business < ActiveRecord::Base
       end
     end
     
+  end
+
+  # UNTESTED!!
+  def available_paylines
+    game.paylines.business.order(:probability)
+  end
+
+
+  def auto_assign_prizes
+    available_paylines.each do |payline|
+      prizes.sort_by(&:value).reverse!.each do |prize|
+        prize.assign_to_payline(payline)
+      end
+    end
   end
 
   def downcase_subdomain

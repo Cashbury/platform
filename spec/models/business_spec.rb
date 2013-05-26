@@ -101,4 +101,16 @@ describe Business do
 
   end
 
+  describe "#auto_assign_prizes" do
+
+    it "should assign prizes to be assigned to paylines" do
+      
+    end
+    
+    it "should add an error to base when prizes count goes beyond available paylines" do
+      
+    end
+
+  end
+
 end

@@ -21,6 +21,7 @@ describe Marketing::Prize do
 
   describe 'associations' do
     it { should belong_to(:prizeable) }
+    it { should belong_to(:payline)   }
   end
 
   describe 'table name' do
@@ -96,6 +97,17 @@ describe Marketing::Prize do
     it "should reduce the available quantity and call decrement quantity" do
       prizeable.should_receive(:decrement_quantity) 
       marketing_prize.unlock_for(user)
+    end
+
+  end
+
+  describe "#assign_to_payline" do
+
+    let(:payline) { stub_model(Game::Payline, id: 10) }
+
+    it "assigns self to a payline" do
+      marketing_prize.assign_to_payline(payline)
+      marketing_prize.payline.should == payline
     end
 
   end

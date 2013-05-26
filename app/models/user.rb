@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   # NOT TESTED!!!
   def play_token_balance_at(business)
-    play_tokens.for_business(business).count
+    play_tokens.for_business(business).size
   end
 
   def notify
