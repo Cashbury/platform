@@ -11,7 +11,8 @@ json.locations @locations do |location|
   json.full_address   location.full_address
 
   json.business do
-    json.name  location.business.name
+    json.id             location.business.id
+    json.name           location.business.name
     json.logo           location.business.logo
     json.description    location.description
     json.pin_number     location.business.master_pin

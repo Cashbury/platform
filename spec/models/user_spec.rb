@@ -85,6 +85,18 @@ describe User do
 
   end
 
+  describe "#prize_board" do
+
+    it "should instantiate a prize board and return a new instance" do
+      user.prize_board('token').should be_an_instance_of(PrizeBoard)
+    end
+
+    it "should not instantiate with no token" do
+      expect { user.prize_board }.to raise_error
+    end
+    
+  end
+
   describe "#marketing_money_balance_at(business)" do
 
     let(:business) { stub_model(Business, id: 10) }

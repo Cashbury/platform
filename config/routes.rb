@@ -16,18 +16,25 @@ Platform::Application.routes.draw do
           member { post :redeem }
         end
       end
+
       resources :engagement
       resources :businesses
       resources :locations
       resources :password_resets, only: :create
       resources :business_pin,    only: :update
+      resources :prize_boards
+
+      namespace :game do
+        resources :play, only: :create
+      end
 
       namespace :marketing do
         resources :prizes, only: :create
         resources :campaigns
       end
 
-      post 'sessions' => 'sessions#create'
+      post    'sessions' => 'sessions#create'
+      delete  'sessions' => 'sessions#destroy'
     end
   end
 
@@ -39,6 +46,7 @@ Platform::Application.routes.draw do
   match '/oauth/callback'                     => 'oauths#callback'
   match '/oauth/:provider'                    => 'oauths#oauth',          :as => :auth_at_provider
   
-  root :to => 'welcome#index'
+  root :to        => 'home#index'
+  match '*ember'  => 'home#index'
 
 end

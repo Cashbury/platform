@@ -1,0 +1,38 @@
+<script type="text/x-handlebars">
+  <h2>Welcome to Spin2Win</h2>
+  {{outlet}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="index">
+  {{#if App.Auth.signedIn}}
+    <p><a href="/#" {{action "signOut"}}>Sign Out</a></p>
+  {{else}}
+    <p>{{#linkTo "sign_in"}}Sign In{{/linkTo}}</p>
+  {{/if}}
+</script>
+
+<script type='text/x-handlebars' id="sign_in">
+  <h1>Sign in Page</h1>
+  {{#if loginError}}
+    <div class="alert alert-error">
+      <button type="button" class="close" data-dismiss="alert" {{action "dismissError"}}>&times;</button>
+      {{loginResponse}}}
+    </div>
+  {{/if}}
+  <form>
+    <fieldset>
+      <legend>Sign In</legend>
+      <label>
+        Email<br>
+        {{view Ember.TextField type="email" name="email" valueBinding="email"}}
+      </label>
+      <label>
+        Password<br>
+        {{view Ember.TextField type="password" name="password" valueBinding="password"}}
+      </label>
+      <label class="checkbox">Remember me {{view Ember.Checkbox type="checkbox" name="remember_me" checkedBinding="remember"}}</label>
+      <br>
+      <button {{action "signIn"}} class="btn" type="submit">Sign In</button>
+    </fieldset>
+  </form>
+</script>

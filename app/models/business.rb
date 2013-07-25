@@ -44,12 +44,20 @@ class Business < ActiveRecord::Base
     game.paylines.business.order(:probability)
   end
 
+  def available_national_paylines
+    game.paylines.national.order(:probability)
+  end
 
-  def auto_assign_prizes
-    available_paylines.each do |payline|
-      prizes.sort_by(&:value).reverse!.each do |prize|
-        prize.assign_to_payline(payline)
-      end
+  # FIX THIS METHOD WHEN CLOSE TO FRONT END DEVELOPMENT
+  def auto_assign_prizes_business
+    available_paylines.product(prizes.business.sort_by(&:value).reverse!).each do |payline, prize|
+      prize.assign_to_payline(payline) # <<-- FIX HERE
+    end
+  end
+
+  def auto_assign_prizes_national
+    available_national_paylines.product(prizes.national.sort_by(&:value).reverse!).each do |payline, prize|
+      prize.assign_to_payline(payline) # <<-- FIX HERE
     end
   end
 

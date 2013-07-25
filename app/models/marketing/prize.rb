@@ -1,7 +1,6 @@
 class Marketing::Prize < ActiveRecord::Base
   self.table_name = 'marketing_prizes'
 
-  validates :name, :presence => true
   belongs_to :prizeable, :polymorphic => true
   belongs_to :campaign, class_name: 'Marketing::Campaign'
   belongs_to :payline, class_name: 'Game::Payline'
@@ -9,8 +8,15 @@ class Marketing::Prize < ActiveRecord::Base
   has_many :user_prizes
   has_many :users, through: :user_prizes
 
+  validates :name, :presence => true
+  validates_presence_of :group
+  validates_inclusion_of :group, :in => ['national', 'business']
+
   delegate :value, :to => :prizeable
   delegate :quantity_available, :to => :prizeable
+
+  scope :national, lambda { where(group: 'national') }
+  scope :business, lambda { where(group: 'business') }
 
   class << self
 
@@ -45,7 +51,7 @@ class Marketing::Prize < ActiveRecord::Base
   end
 
   def assign_to_payline(payline)
-    self.payline = payline
+    self.payline_id = payline.id
     save
   end
 

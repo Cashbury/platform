@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def prize_board(token)
+    PrizeBoard.new(token)
+  end
+
   # NOT TESTED!!!
   def play_token_balance_at(business)
     play_tokens.for_business(business).size

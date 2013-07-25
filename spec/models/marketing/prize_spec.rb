@@ -17,6 +17,8 @@ describe Marketing::Prize do
 
   describe 'validations' do
     it { should validate_presence_of :name }
+    it { should validate_presence_of :group }
+    it { should ensure_inclusion_of(:group).in_array(['national', 'business']) }
   end
 
   describe 'associations' do

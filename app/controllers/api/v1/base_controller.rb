@@ -32,14 +32,13 @@ class Api::V1::BaseController < ApplicationController
   protected
 
   def authenticate
-    raise Api::Exception::Unauthorized if request.authorization.nil?
-    authenticate_or_request_with_http_token do |token, options|
-      user_exists = User.exists?(authentication_token: token)
-      if !user_exists
-        raise Api::Exception::Unauthorized
-      else
-        @current_user = User.find_by_authentication_token(token)
-      end
+    raise Api::Exception::Unauthorized if params[:authentication_token].nil?
+    token = params[:authentication_token]
+    user_exists = User.exists?(authentication_token: token)
+    if !user_exists
+      raise Api::Exception::Unauthorized
+    else
+      @current_user = User.find_by_authentication_token(token)
     end
   end
 

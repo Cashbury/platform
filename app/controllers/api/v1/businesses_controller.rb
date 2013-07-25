@@ -9,6 +9,11 @@ class Api::V1::BusinessesController < Api::V1::BaseController
   	end
   end
 
+  def show
+    @business = Business.find(params[:id])
+    render :show
+  end
+
   private
   def business_params
     params.require(:business).permit!
